@@ -1,0 +1,40 @@
+<h1>Cadastre-se</h1>
+
+<div>
+  <% if @user.errors.any? %>
+    <%= notice %>
+
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+      <% end %>
+    </ul>
+
+  <% end %>
+</div>
+
+<%= form_with(model: @user) do | f | %>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :role %>
+    <%= f.select :role, options_for_select([['Dono de Pousada', User::TYPE_OWNER], ['Hóspede', User::TYPE_CLIENT]], @user.role) %>
+  </div>
+
+  <div>
+    <%= f.submit "Salvar" %>
+  </div>
+<% end %>
+
+<%= link_to "Voltar", root_path %>
