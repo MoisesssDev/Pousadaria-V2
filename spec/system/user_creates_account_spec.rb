@@ -27,7 +27,7 @@ describe "User creates account " do
 
     # Assert
     expect(page).to have_content("Conta criada com sucesso") 
-    expect(page).to have_current_path(root_path)
+    expect(page).to have_current_path(new_guesthouse_path)
     expect(User.last.role).to eq(User::TYPE_OWNER)
   end
   

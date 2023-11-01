@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one :guesthouse
   validates :email, :password, presence: true
   validates :email, uniqueness: true
 
