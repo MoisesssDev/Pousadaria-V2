@@ -12,8 +12,19 @@
 
   <body>
     <header>
+      <nav>
+        <% if user_signed_in? %>
+          <%= current_user.email %>
+          <%= button_to "Sair", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Entrar", new_user_session_path %>
+        <% end %>
+        
+        <%= link_to "Cadastrar", new_user_registration_path %>
+      </nav>
       <h1>Pousadaria</h1>
     </header>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
