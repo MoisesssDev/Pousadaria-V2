@@ -6,7 +6,7 @@ pt-BR:
     attributes:
       user:
         email: "E-mail"
-        password: "Senha"
+        encrypted_password: "Senha"
         role: "Tipo"
       guesthouse:
         name: "Nome"

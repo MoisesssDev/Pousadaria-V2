@@ -2,7 +2,6 @@
 
 <div>
   <% if @user.errors.any? %>
-    <%= notice %>
 
     <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -23,8 +22,8 @@
   </div>
 
   <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.label :encrypted_password %>
+    <%= f.password_field :encrypted_password %>
   </div>
 
   <div>
