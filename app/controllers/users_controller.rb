@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    @page_title = "Cadastro"
     @user = User.new(user_params) 
 
     respond_to do |format|

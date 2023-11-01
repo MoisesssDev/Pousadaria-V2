@@ -3,13 +3,13 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   TYPE_OWNER = 'dono_pousada'
-  TYPE_CLIENT = 'hospede'
+  TYPE_CUSTOMER = 'hospede'
 
   def owner?
-    tipo == TYPE_OWNER
+    role == TYPE_OWNER
   end
 
-  def client?
-    tipo == TYPE_CLIENT
+  def customer?
+    role == TYPE_CUSTOMER
   end
 end

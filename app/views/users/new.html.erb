@@ -29,7 +29,7 @@
 
   <div>
     <%= f.label :role %>
-    <%= f.select :role, options_for_select([['Dono de Pousada', User::TYPE_OWNER], ['Hóspede', User::TYPE_CLIENT]], @user.role) %>
+    <%= f.select :role, options_for_select([['Dono de Pousada', User::TYPE_OWNER], ['Hóspede', User::TYPE_CUSTOMER]], @user.role) %>
   </div>
 
   <div>
