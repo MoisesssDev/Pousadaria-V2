@@ -2,8 +2,27 @@ pt-BR:
   activerecord:
     models:
       user: "Usuário"
+      guesthouse: "Pousada"
     attributes:
       user:
         email: "E-mail"
         password: "Senha"
         role: "Tipo"
+      guesthouse:
+        name: "Nome"
+        legal_name: "Razão social"
+        cnpj: "CNPJ"
+        phone: "Telefone"
+        email: "E-mail"
+        address: "Endereço"
+        district: "Bairro"
+        state: "Estado"
+        city: "Cidade"
+        cep: "CEP"
+        description: "Descrição"
+        accepted_payment_methods: "Meios de pagamento"
+        accepts_pets: "Aceita pets"
+        policies: "Políticas"
+        check_in_time: "Check-in"
+        check_out_time: "Check-out"
+
