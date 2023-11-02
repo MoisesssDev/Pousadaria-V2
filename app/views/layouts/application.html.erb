@@ -2,6 +2,15 @@
 <html>
   <head>
     <title>Pousadaria | <%= @page_title %></title>
+    <%# import font family %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiko:wght@400;600;700&display=swap" rel="stylesheet">
+    <%# end %>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,16 +22,17 @@
   <body>
     <header>
       <nav>
-        <% if user_signed_in? %>
-          <%= current_user.email %>
-          <%= button_to "Sair", destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to "Entrar", new_user_session_path %>
-        <% end %>
+        <h1><%= link_to "Pousadaria", root_path %></h1>
+
+        <div class="menu">
+          <% if user_signed_in? %>
+            <%= current_user.email %> / <%= button_to "Sair", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "Entrar / Cadastrar", new_user_session_path %>
+          <% end %>
+        </div>
         
-        <%= link_to "Cadastrar", new_user_registration_path %>
       </nav>
-      <h1>Pousadaria</h1>
     </header>
 
     <p class="notice"><%= notice %></p>

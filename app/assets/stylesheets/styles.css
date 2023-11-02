@@ -1,0 +1,29 @@
+body {
+  background-color: #EDEDF2;
+  font-family: 'Amiko', sans-serif;
+}
+
+nav {
+  padding: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: -1px -4px 5px 11px rgba(0,0,0,0.35);
+  -webkit-box-shadow: -1px -4px 5px 11px rgba(0,0,0,0.35);
+  -moz-box-shadow: -1px -4px 5px 11px rgba(0,0,0,0.35);
+}
+
+nav h1 {
+  font-size: 32px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+nav a {
+  text-decoration: none;
+  transition: color 0.3s;
+  color: #6C788E;
+}
+
+nav a:hover {
+  color: #53575f; /* Cor quando passa o mouse por cima */
+}
