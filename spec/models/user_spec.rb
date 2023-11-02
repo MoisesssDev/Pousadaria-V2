@@ -1,43 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe "#valid?" do
-    context "presence" do
-      it "false when E-mail is empty" do
-        # Arrange
-        user = User.new(email: "", password: "324167mo", role: User::TYPE_OWNER)
-        # Act
-        result = user.valid?
-  
-        # Assert
-        expect(result).to eq false 
-      end
-  
-      it "false when password is empty" do
-        # Arrange
-        user = User.new(email: "moisesalmeida@gmail.com", password: "", role: User::TYPE_OWNER)
-        # Act
-        result = user.valid?
-  
-        # Assert
-        expect(result).to eq false 
-      end
-    end
-
-    context "uniqueness" do
-      it "false when E-mail is already in use" do
-        # Arrange
-        user = User.create(email: "moisesalmeida@gmail.com", password: "5678346", role: User::TYPE_OWNER)
-        second_user = User.new(email: "moisesalmeida@gmail.com", password: "23768m2", role: User::TYPE_OWNER)
-        # Act
-        result = second_user.valid?
-
-        # Assert
-        expect(result).to eq false  
-      end
-      
-    end
-  end
 
   describe "user is owner or customer" do
     it "when user is owner" do

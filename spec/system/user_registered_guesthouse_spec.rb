@@ -1,35 +1,70 @@
 require 'rails_helper'
 
-describe "user registered guesthouse" do
-  it "and see the registration form" do
-    # Arrange
+describe "user register guesthouse" do
+  context "and see the registration form" do
+    it "after create user" do
+      # Arrange
+  
+      # Act
+      visit root_path
+      click_on "Cadastrar"
+      fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
+      fill_in "Senha",	with: "32415mo"
+      fill_in "Confirme sua senha",	with: "32415mo"
+      select "Dono de Pousada", from: "Tipo"
+      click_on "Salvar"
+  
+      # Assert
+      expect(page).to have_field('Nome')
+      expect(page).to have_field('Razão social')
+      expect(page).to have_field('Telefone')
+      expect(page).to have_field('E-mail')
+      expect(page).to have_field('Endereço')
+      expect(page).to have_field('Bairro')
+      expect(page).to have_field('Estado')
+      expect(page).to have_field('Cidade')
+      expect(page).to have_field('CEP')
+      expect(page).to have_field('Meios de pagamento')
+      expect(page).to have_field('Aceita pets')
+      expect(page).to have_field('Políticas')
+      expect(page).to have_field('Check-in')
+      expect(page).to have_field('Check-out')
+    end
 
-    # Act
-    visit root_path
-    click_on "Cadastrar"
-    fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
-    fill_in "Senha",	with: "32415mo"
-    select "Dono de Pousada", from: "Tipo"
-    click_on "Salvar"
-
-    # Assert
-    expect(page).to have_field('Nome')
-    expect(page).to have_field('Razão social')
-    expect(page).to have_field('Telefone')
-    expect(page).to have_field('E-mail')
-    expect(page).to have_field('Endereço')
-    expect(page).to have_field('Bairro')
-    expect(page).to have_field('Estado')
-    expect(page).to have_field('Cidade')
-    expect(page).to have_field('CEP')
-    expect(page).to have_field('Meios de pagamento')
-    expect(page).to have_field('Aceita pets')
-    expect(page).to have_field('Políticas')
-    expect(page).to have_field('Check-in')
-    expect(page).to have_field('Check-out')
+    it "after login" do
+      # Arrange
+      User.create!(email: "moisesAlmeida@hotmail.com", password: "32415mo", role: User::TYPE_OWNER)
+  
+      # Act
+      visit root_path
+      click_on "Entrar"
+      fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
+      fill_in "Senha",	with: "32415mo"
+      within "form" do
+        click_on "Entrar"
+      end
+  
+      # Assert
+      expect(page).to have_field('Nome')
+      expect(page).to have_field('Razão social')
+      expect(page).to have_field('Telefone')
+      expect(page).to have_field('E-mail')
+      expect(page).to have_field('Endereço')
+      expect(page).to have_field('Bairro')
+      expect(page).to have_field('Estado')
+      expect(page).to have_field('Cidade')
+      expect(page).to have_field('CEP')
+      expect(page).to have_field('Meios de pagamento')
+      expect(page).to have_field('Aceita pets')
+      expect(page).to have_field('Políticas')
+      expect(page).to have_field('Check-in')
+      expect(page).to have_field('Check-out')
+    end
   end
   
-  it "and Guesthouse successfully registered" do
+  
+  
+  it "with successfully" do
     # Arrange
 
     # Act
@@ -37,6 +72,7 @@ describe "user registered guesthouse" do
     click_on "Cadastrar"
     fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
     fill_in "Senha",	with: "32415mo"
+    fill_in "Confirme sua senha",	with: "32415mo"
     select "Dono de Pousada", from: "Tipo"
     click_on "Salvar"
     fill_in 'Nome', with: 'Seu Zé'
@@ -56,7 +92,7 @@ describe "user registered guesthouse" do
     click_on "Salvar"
 
     # Assert
-    expect(page).to have_field('Pousada cadastrada com sucesso')
+    expect(page).to have_content('Pousada cadastrada com sucesso')
   end
 
 end
