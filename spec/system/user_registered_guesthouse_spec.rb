@@ -7,7 +7,8 @@ describe "user register guesthouse" do
   
       # Act
       visit root_path
-      click_on "Cadastrar"
+      click_on "Entrar / Cadastrar"
+      click_on "Criar conta"
       fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
       fill_in "Senha",	with: "32415mo"
       fill_in "Confirme sua senha",	with: "32415mo"
@@ -37,7 +38,7 @@ describe "user register guesthouse" do
   
       # Act
       visit root_path
-      click_on "Entrar"
+      click_on "Entrar / Cadastrar"
       fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
       fill_in "Senha",	with: "32415mo"
       within "form" do
@@ -68,7 +69,8 @@ describe "user register guesthouse" do
   
       # Act
       visit root_path
-      click_on "Cadastrar"
+      click_on "Entrar / Cadastrar"
+      click_on "Criar conta"
       fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
       fill_in "Senha",	with: "32415mo"
       fill_in "Confirme sua senha",	with: "32415mo"
@@ -91,7 +93,8 @@ describe "user register guesthouse" do
       click_on "Salvar"
   
       # Assert
-      expect(page).to have_content('Pousada cadastrada com sucesso')
+      expect(page).to have_content 'Pousada cadastrada com sucesso'
+      expect(current_path).to eq(root_path)
     end
 
     it "after login" do
@@ -100,7 +103,7 @@ describe "user register guesthouse" do
   
       # Act
       visit root_path
-      click_on "Entrar"
+      click_on "Entrar / Cadastrar"
       fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
       fill_in "Senha",	with: "32415mo"
       within "form" do
@@ -123,7 +126,8 @@ describe "user register guesthouse" do
       click_on "Salvar"
   
       # Assert
-      expect(page).to have_content('Pousada cadastrada com sucesso')
+      expect(page).to have_content 'Pousada cadastrada com sucesso'
+      expect(current_path).to eq(root_path)
     end
   end
 end

@@ -7,7 +7,8 @@ describe "User creates account " do
 
     # Act
     visit root_path
-    click_on "Cadastrar"
+    click_on "Entrar / Cadastrar"
+    click_on "Criar conta"
     fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
     fill_in "Senha",	with: "32415mo"
     fill_in "Confirme sua senha",	with: "32415mo"
@@ -26,7 +27,8 @@ describe "User creates account " do
 
     # Act
     visit root_path
-    click_on "Cadastrar"
+    click_on "Entrar / Cadastrar"
+    click_on "Criar conta"
     fill_in "E-mail",	with: "" 
     fill_in "Senha",	with: ""
     click_on "Salvar"

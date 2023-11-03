@@ -1,10 +1,13 @@
 body {
   background-color: #EDEDF2;
   font-family: 'Amiko', sans-serif;
+  color: #6C788E;
 }
 
+/* NAV-BAR */
 nav {
-  padding: 1.3rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,8 +17,10 @@ nav {
 }
 
 nav h1 {
-  font-size: 32px;
+  font-size: 28px;
   font-family: 'Be Vietnam Pro', sans-serif;
+  padding: 0.4rem;
+  text-shadow: -2px 2px 2px rgba(113,137,174,0.57);
 }
 
 nav a {
@@ -26,4 +31,97 @@ nav a {
 
 nav a:hover {
   color: #53575f; /* Cor quando passa o mouse por cima */
+}
+
+/* INDEX WELCOME */
+.welcome {
+  background-image: url(https://images.wallpaperscraft.com/image/single/boat_river_fog_1073443_3840x2160.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 5%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+  color: #2b3039;
+}
+
+.welcome h1 {
+  font-size: 40px;
+}
+
+.welcome p {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.welcome a {
+  margin-top: 30px;
+  padding: 15px 30px;
+  background-color:#2b3039;
+  color: #b4b9c3;
+  border-radius: 5px;
+  font-size: 20px;
+  text-decoration: none;
+  box-shadow: -1px 9px 8px 3px rgba(0,0,0,0.67);
+  -webkit-box-shadow: -1px 9px 8px 3px rgba(0,0,0,0.67);
+  -moz-box-shadow: -1px 9px 8px 3px rgba(0,0,0,0.67);
+  transition: 0.7s;
+}
+
+.welcome a:hover {
+  background-color: transparent;
+  color: #2b3039;
+}
+
+/* INDEX GUESTHOUSES */
+.title-guesthouses {
+  margin: 50px 0;
+  text-align: center;
+  font-size: 34px;
+}
+
+#guesthouses-grid {
+  padding: 10px 5%;
+}
+
+#guesthouses-grid .card-guesthouse {
+  width: 310px;
+  background: #fff;
+  box-shadow: 1px 8px 12px 1px rgba(0,0,0,0.61);
+  -webkit-box-shadow: 1px 8px 12px 1px rgba(0,0,0,0.61);
+  -moz-box-shadow: 1px 8px 12px 1px rgba(0,0,0,0.61);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+#guesthouses-grid .card-guesthouse .description {
+  opacity: 0.8;
+  padding: 5px 20px;
+}
+
+#guesthouses-grid .card-guesthouse .title {
+  font-weight: 900;
+  font-size: 26px;
+  padding: 0 20px;
+}
+
+#guesthouses-grid .card-guesthouse .informations {
+  opacity: 0.8;
+  padding: 5px 20px;
+  font-size: 12px;
+}
+
+#guesthouses-grid .card-guesthouse .contact {
+  opacity: 0.8;
+  padding: 5px 20px;
+  text-align: end;
+  font-size: 14px;
+}
+
+.guesthouses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }

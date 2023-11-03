@@ -1,1 +1,36 @@
-<h1>Home</h1>
+<section class="welcome">
+  <h1>Encontre o aconchego perfeito em pousadas brasileiras </h1>
+  <p>
+    Revolucionando a forma como você vive a experiência de viagem
+    onde a hospitalidade encontra aconchego e cada estadia é uma história inesquecível.
+  </p>
+  <a href="#guesthouses-grid">Ver pousadas</a>
+</section>
+
+<h2 class="title-guesthouses">Pousadas à disposição</h2>
+
+<section id="guesthouses-grid">
+  <div class="guesthouses">
+    <% @guesthouses.each do |guesthouse| %>
+
+    <div class="card-guesthouse">
+
+      <p class="description">
+        <%= truncate(guesthouse.description, length: 70) %>
+      </p>
+      
+      <h2 class="title"> <%= guesthouse.name %> </h2>
+
+      <p class="informations">
+        <%= guesthouse.state + " | " + guesthouse.district + " | " + guesthouse.address %>
+      </p>
+      
+      <p class="contact">
+        <%= guesthouse.phone %>
+      </p>
+
+    </div>
+
+  <% end %>
+  </div>
+</section>
