@@ -17,6 +17,11 @@ class GuesthousesController < ApplicationController
     end
   end
 
+  def show
+    @guesthouse = Guesthouse.find(
+    params[:id]
+    )
+  end
   private
 
   def guesthouse_params

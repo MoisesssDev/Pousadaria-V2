@@ -19,7 +19,7 @@
         <%= truncate(guesthouse.description, length: 70) %>
       </p>
       
-      <h2 class="title"> <%= guesthouse.name %> </h2>
+      <h2 class="title"> <%= link_to guesthouse.name, guesthouse_path(guesthouse) %>  </h2>
 
       <p class="informations">
         <%= guesthouse.state + " | " + guesthouse.district + " | " + guesthouse.address %>
