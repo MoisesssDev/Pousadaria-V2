@@ -1,17 +1,25 @@
-<h1><%= @guesthouse.name %></h1>
+<div>
+  <h1><%= @guesthouse.name %></h1>
 
-<p><%= @guesthouse.legal_name %></p>
-<p><%= @guesthouse.cnpj %></p>
-<p><%= @guesthouse.phone %></p>
-<p><%= @guesthouse.email %></p>
-<p><%= @guesthouse.address %></p>
-<p><%= @guesthouse.district %></p>
-<p><%= @guesthouse.state %></p>
-<p><%= @guesthouse.city %></p>
-<p><%= @guesthouse.cep %></p>
-<p><%= @guesthouse.description %></p>
-<p><%= @guesthouse.accepted_payment_methods %></p>
-<p><%= @guesthouse.accepts_pets ? "Aceita pets" : "Não aceita pets" %></p>
-<p><%= @guesthouse.policies %></p>
-<p>Check-in: <%= @guesthouse.check_in_time.strftime("%H:%M") %></p>
-<p>Check-out: <%= @guesthouse.check_out_time.strftime("%H:%M") %></p>
+  <p><%= @guesthouse.legal_name %></p>
+  <p><%= @guesthouse.cnpj %></p>
+  <p><%= @guesthouse.phone %></p>
+  <p><%= @guesthouse.email %></p>
+  <p><%= @guesthouse.address %></p>
+  <p><%= @guesthouse.district %></p>
+  <p><%= @guesthouse.state %></p>
+  <p><%= @guesthouse.city %></p>
+  <p><%= @guesthouse.cep %></p>
+  <p><%= @guesthouse.description %></p>
+  <p><%= @guesthouse.accepted_payment_methods %></p>
+  <p><%= @guesthouse.accepts_pets ? "Aceita pets" : "Não aceita pets" %></p>
+  <p><%= @guesthouse.policies %></p>
+  <p>Check-in: <%= @guesthouse.check_in_time.strftime("%H:%M") %></p>
+  <p>Check-out: <%= @guesthouse.check_out_time.strftime("%H:%M") %></p>
+</div>
+
+<% if user_signed_in? && current_user.guesthouse.id == @guesthouse.id %>
+  <div>
+    <%= link_to "Adicionar quarto", new_room_path %>
+  </div>
+<% end %>

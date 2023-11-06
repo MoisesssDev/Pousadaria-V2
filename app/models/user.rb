@@ -8,6 +8,10 @@ class User < ApplicationRecord
   TYPE_OWNER = 'dono_pousada'
   TYPE_CUSTOMER = 'hospede'
 
+  def find_guesthouse_id
+    guesthouse_id = guesthouse.id
+  end
+
   def owner?
     role == TYPE_OWNER
   end

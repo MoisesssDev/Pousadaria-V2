@@ -95,6 +95,7 @@ describe "user register guesthouse" do
       # Assert
       expect(page).to have_content 'Pousada cadastrada com sucesso'
       expect(current_path).to eq(root_path)
+      expect(User.last.guesthouse.id).to eq(Guesthouse.last.id)
     end
 
     it "after login" do

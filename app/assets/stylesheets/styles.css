@@ -102,10 +102,16 @@ nav a:hover {
   padding: 5px 20px;
 }
 
-#guesthouses-grid .card-guesthouse .title {
+#guesthouses-grid .card-guesthouse .title a {
+  text-decoration: none;
+  color: #6C788E;
   font-weight: 900;
   font-size: 26px;
   padding: 0 20px;
+}
+
+#guesthouses-grid .card-guesthouse .title a:hover {
+  color: #53575f;
 }
 
 #guesthouses-grid .card-guesthouse .informations {

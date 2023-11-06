@@ -4,15 +4,13 @@ describe 'User view guesthouses details' do
   it 'and see all fields' do
     # Arrange
     user = User.create!(email: "moisesalmeida@gmail.com", password: "110302", role: User::TYPE_OWNER)
-    guesthouse = Guesthouse.new(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
+    guesthouse = user.build_guesthouse(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
                                    cnpj: "12345678901234", phone: "79 98837-7894",
                                    email: "seu@email.com", address: "Rua Alemedo, 54", district: "Cocora",
                                    state: "Rio de Janeiro", city: "João Pessoa", cep: "89700-218",
                                    description: "Descrição da Pousada", accepted_payment_methods: "Cartão, Pix ou Boleto",
                                    accepts_pets: true, policies: "Políticas de Uso da Pousada", check_in_time: "10:00:00", check_out_time: "14:00:00")
-    guesthouse.user = user
     guesthouse.save
-    user.guesthouse_id = guesthouse.id
 
     # Act
     visit root_path

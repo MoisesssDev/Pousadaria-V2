@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_02_155656) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_06_183950) do
   create_table "guesthouses", force: :cascade do |t|
     t.string "name"
     t.string "legal_name"
@@ -34,6 +34,26 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_02_155656) do
     t.index ["user_id"], name: "index_guesthouses_on_user_id"
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "dimension"
+    t.integer "max_occupancy"
+    t.decimal "daily_rate"
+    t.boolean "has_private_bathroom"
+    t.boolean "has_balcony"
+    t.boolean "has_air_conditioning"
+    t.boolean "has_tv"
+    t.boolean "has_wardrobe"
+    t.boolean "is_accessible"
+    t.boolean "has_cofre"
+    t.boolean "available"
+    t.integer "guesthouse_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guesthouse_id"], name: "index_rooms_on_guesthouse_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -43,12 +63,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_02_155656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "role"
-    t.integer "guesthouse_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["guesthouse_id"], name: "index_users_on_guesthouse_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "guesthouses", "users"
-  add_foreign_key "users", "guesthouses"
+  add_foreign_key "rooms", "guesthouses"
 end

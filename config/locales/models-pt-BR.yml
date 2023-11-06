@@ -3,6 +3,7 @@ pt-BR:
     models:
       user: "Usuário"
       guesthouse: "Pousada"
+      room: "Quarto"
     attributes:
       user:
         email: "E-mail"
@@ -25,4 +26,18 @@ pt-BR:
         policies: "Políticas"
         check_in_time: "Check-in"
         check_out_time: "Check-out"
+      room:
+        name: "Nome"
+        description: "Descrição"
+        dimension: "Área"
+        max_occupancy: "Quantidade máxima de pessoas"
+        daily_rate: "Diária"
+        has_private_bathroom: "Tem banheiro"
+        has_balcony: "Tem varanda"
+        has_air_conditioning: "Tem ar-condicionado"
+        has_tv: "Tem TV"
+        has_wardrobe: "Tem guarda-roupa"
+        is_accessible: "É acessível"
+        has_cofre: "Tem cofre"
+        available: "ativo"
 

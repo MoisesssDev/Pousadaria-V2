@@ -26,6 +26,10 @@
 
         <div class="menu">
           <% if user_signed_in? %>
+          
+          <% if current_user.guesthouse.present? %>
+            <%= link_to "Minha pousada", guesthouse_path(current_user.guesthouse) %>
+          <% end %>
             <%= current_user.email %> / <%= button_to "Sair", destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to "Entrar / Cadastrar", new_user_session_path %>
