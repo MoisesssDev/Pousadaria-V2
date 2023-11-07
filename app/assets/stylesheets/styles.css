@@ -1,4 +1,5 @@
 body {
+  overflow: hidden;
   background-color: #EDEDF2;
   font-family: 'Amiko', sans-serif;
   color: #6C788E;

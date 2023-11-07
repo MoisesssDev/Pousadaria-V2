@@ -8,11 +8,34 @@ class RoomsController < ApplicationController
     @room = @guesthouse.rooms.build(room_params)
 
     if @room.save
-      redirect_to guesthouse_path(@guesthouse), notice: "Quarto cadastrada com sucesso"     
+      redirect_to guesthouse_path(@guesthouse), notice: "Quarto cadastrada com sucesso"  
     else
       render "new", status: :unprocessable_entity
     end
   end
+
+  def edit
+    @room = Room.find(
+    params[:id]
+    )
+  end
+
+  def update
+    @room = Room.find(params[:id])
+    @guesthouse = current_user.guesthouse
+
+    if @room.update(room_params)
+      redirect_to guesthouse_path(@guesthouse), notice: "Quarto atualizado com sucesso"
+    else
+      render "edit", status: :unprocessable_entity
+    end
+  end
+
+  def index
+    @guesthouse = current_user.guesthouse
+    @rooms_unavailable = @guesthouse.rooms.where(available: false)
+  end
+
 
   private
 

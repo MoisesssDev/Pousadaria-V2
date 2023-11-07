@@ -1,0 +1,72 @@
+<h1>Editar quarto</h1>
+
+<%= form_for @room do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dimension %>
+    <%= f.number_field :dimension %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max_occupancy %>
+    <%= f.number_field :max_occupancy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :daily_rate %>
+    <%= f.number_field :daily_rate, step: 0.01 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_private_bathroom %>
+    <%= f.check_box :has_private_bathroom %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_balcony %>
+    <%= f.check_box :has_balcony %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_air_conditioning %>
+    <%= f.check_box :has_air_conditioning %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_tv %>
+    <%= f.check_box :has_tv %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_wardrobe %>
+    <%= f.check_box :has_wardrobe %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_accessible %>
+    <%= f.check_box :is_accessible %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_cofre %>
+    <%= f.check_box :has_cofre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :available %>
+    <%= f.check_box :available %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Salvar" %>
+  </div>
+<% end %>

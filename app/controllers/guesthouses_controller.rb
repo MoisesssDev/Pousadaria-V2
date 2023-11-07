@@ -19,6 +19,7 @@ class GuesthousesController < ApplicationController
     @guesthouse = Guesthouse.find(
     params[:id]
     )
+    @rooms = @guesthouse.rooms.where(available: true)
   end
   private
 
