@@ -1,0 +1,110 @@
+/* INDEX WELCOME */
+.welcome {
+  background-image: url(https://img3.wallspic.com/crops/0/7/1/6/7/176170/176170-mountain_lake_cabin-cottage-vacation_rental-rent-cabin_rentals-3840x2160.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 5%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 75vh;
+  color: var(--black-color);
+}
+
+.welcome h1 {
+  font-size: 40px;
+  letter-spacing: 3px;
+}
+
+.welcome p {
+  margin-top: 20px;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.welcome a {
+  margin-top: 30px;
+  letter-spacing: 2px;
+  padding: 15px 30px;
+  background-color:var(--red-color);
+  color: var(--white-color);
+  border-radius: 5px;
+  font-size: 20px;
+  text-decoration: none;
+  box-shadow: -1px 9px 8px 3px rgba(0,0,0,0.67);
+  -webkit-box-shadow: -1px 9px 8px 3px rgba(0,0,0,0.67);
+  -moz-box-shadow: -1px 9px 8px 3px rgba(0,0,0,0.67);
+  transition: 0.7s;
+}
+
+.welcome a:hover {
+  background-color: var(--light-red);
+  color: var(--light-gray);
+  transform: translate(-3px,-5px);
+  -webkit-transform: translate(-1px,-5px);
+  -moz-transform: translate(-1px,-5px);
+}
+
+/* INDEX GUESTHOUSES */
+.title-guesthouses {
+  letter-spacing: 5px;
+  margin: 70px 0;
+  text-align: end;
+  width: 70%;
+  color: var(--light-red);
+  border-bottom: 10px solid var(--light-red);
+  font-size: 28px;
+  padding-bottom: 20px;
+  opacity: 0.8;
+}
+
+#guesthouses-grid {
+  padding: 10px 5%;
+}
+
+#guesthouses-grid .card-guesthouse {
+  width: 410px;
+  background: var(--light-gray);
+  box-shadow: 1px 8px 12px 1px rgba(0,0,0,0.61);
+  -webkit-box-shadow: 1px 8px 12px 1px rgba(0,0,0,0.61);
+  -moz-box-shadow: 1px 8px 12px 1px rgba(0,0,0,0.61);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+#guesthouses-grid .card-guesthouse .description {
+  opacity: 0.6;
+  padding: 5px 20px;
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+
+#guesthouses-grid .card-guesthouse .title a {
+  text-decoration: none;
+  color: var(--black-color);
+  letter-spacing: 3px;
+  font-size: 26px;
+  padding: 0 20px;
+  text-shadow: -2px 2px 2px rgba(189, 86, 86, 0.57);
+}
+
+#guesthouses-grid .card-guesthouse .informations {
+  letter-spacing: 3px;
+  opacity: 0.6;
+  padding: 5px 20px;
+  font-size: 11px;
+}
+
+#guesthouses-grid .card-guesthouse .contact {
+  opacity: 0.6;
+  padding: 5px 20px;
+  text-align: end;
+  font-size: 12px;
+}
+
+.guesthouses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+}
