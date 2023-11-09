@@ -36,3 +36,31 @@
   <% end %>
   </div>
 </section>
+
+<section id="guesthouses-grid">
+  <h3>Todas as Pousadas:</h3>
+
+  <div class="guesthouses">
+    <% @guesthouses_all.each do |guesthouse| %>
+
+    <div class="card-guesthouse">
+
+      <p class="description">
+        <%= truncate(guesthouse.description, length: 70) %>
+      </p>
+      
+      <h2 class="title"> <%= link_to guesthouse.name, guesthouse_path(guesthouse) %>  </h2>
+
+      <p class="informations">
+        <%= guesthouse.state + " | " + guesthouse.district + " | " + guesthouse.address %>
+      </p>
+      
+      <p class="contact">
+        <%= guesthouse.phone %>
+      </p>
+
+    </div>
+
+  <% end %>
+  </div>
+</section>
