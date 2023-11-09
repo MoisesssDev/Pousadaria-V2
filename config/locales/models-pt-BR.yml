@@ -40,4 +40,7 @@ pt-BR:
         is_accessible: "É acessível"
         has_cofre: "Tem cofre"
         available: "ativo"
-
+      custom_price:
+        start_date: "Data inicial"
+        end_date: "Data final"
+        price: "Preço"

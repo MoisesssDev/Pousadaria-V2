@@ -1,6 +1,8 @@
 <% if user_signed_in? && current_user.guesthouse.id == @room.guesthouse_id %>
+
   <div>
     <%= link_to "Editar quarto", edit_room_path(@room) %>
+    <%= link_to "Personalizar preços", new_custom_price_path %>
     
     <p>Horários personalizados</p>
     <% @room.custom_prices.each do |custom_price| %>
@@ -8,4 +10,5 @@
       <p>Preço: R$ <%= number_with_precision(custom_price.price, precision: 2, separator: ',') %></p>
     <% end %>
   </div>
+
 <% end %>

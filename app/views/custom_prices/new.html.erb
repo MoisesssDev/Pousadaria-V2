@@ -1,0 +1,21 @@
+<%= form_for [@room, @custom_price] do |f| %>
+  <div class="field">
+    <%= f.label :room_id, "Selecione um quarto" %>
+    <%= f.collection_select :room_id, @rooms, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Salvar" %>
+  </div>
+<% end %>
