@@ -36,6 +36,10 @@ class RoomsController < ApplicationController
     @rooms_unavailable = @guesthouse.rooms.where(available: false)
   end
 
+  def show
+    @room = Room.find(params[:id])
+  end
+
 
   private
 

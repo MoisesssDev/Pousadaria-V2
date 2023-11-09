@@ -33,7 +33,7 @@
 
   <% @rooms.each do |room| %>
     
-    <p><%= room.name %></p>
+    <p><%= link_to room.name, room_path(room) %></p>
     <p><%= room.description %></p>
     <p>Área: <%= room.dimension %></p>
     <p>Quantidade máxima de pessoas: <%= room.max_occupancy %></p>
@@ -46,13 +46,6 @@
     <p><%= room.is_accessible ? "Acessível" : "Não é acessível" %></p>
     <p><%= room.has_cofre ? "Tem cofre" : "Não tem cofre" %></p>
     <a href="#">Fazer reserva</a>
-    
-
-    <% if user_signed_in? && current_user.guesthouse.id == @guesthouse.id %>
-      <div>
-        <%= link_to "Editar quarto", edit_room_path(room) %>
-      </div>
-    <% end %>
 
   <% end %>
 </div>

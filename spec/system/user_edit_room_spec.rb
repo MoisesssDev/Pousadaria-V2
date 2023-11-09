@@ -37,6 +37,7 @@ describe 'user edit room in the guesthouse' do
     end
 
     click_on "Minha pousada"
+    click_on "Quarto Sol"
     click_on "Editar quarto"
 
 
@@ -94,6 +95,7 @@ describe 'user edit room in the guesthouse' do
     end
 
     click_on "Minha pousada"
+    click_on "Quarto Sol"
     click_on "Editar quarto"
 
     fill_in "Nome", with: "Quarto Solar"
