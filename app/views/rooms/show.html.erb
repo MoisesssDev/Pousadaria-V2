@@ -1,1 +1,11 @@
-<%= link_to "Editar quarto", edit_room_path(@room) %>
+<% if user_signed_in? && current_user.guesthouse.id == @room.guesthouse_id %>
+  <div>
+    <%= link_to "Editar quarto", edit_room_path(@room) %>
+    
+    <p>Horários personalizados</p>
+    <% @room.custom_prices.each do |custom_price| %>
+      <p>Período: <%= custom_price.start_date.strftime("%d/%m/%Y") %> - <%= custom_price.end_date.strftime("%d/%m/%Y") %></p>
+      <p>Preço: R$ <%= number_with_precision(custom_price.price, precision: 2, separator: ',') %></p>
+    <% end %>
+  </div>
+<% end %>
