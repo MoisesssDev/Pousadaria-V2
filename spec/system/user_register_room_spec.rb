@@ -19,7 +19,7 @@ describe 'authenticated user(owner) registers room' do
       click_on "Entrar / Cadastrar"
       fill_in "E-mail",	with: "moisesalmeida@gmail.com"
       fill_in "Senha",	with: "110302"
-      within "form" do
+      within ".actions" do
         click_on "Entrar"
       end
       click_on "Minha pousada"
@@ -59,7 +59,7 @@ describe 'authenticated user(owner) registers room' do
 
       fill_in "E-mail",	with: "moisesalmeida@gmail.com"
       fill_in "Senha",	with: "110302"
-      within "form" do
+      within ".actions" do
         click_on "Entrar"
       end
 

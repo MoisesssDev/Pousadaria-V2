@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'user view custom price in the room' do
-  it 'and see form' do
+  it 'and see custom price' do
     # Arrange
     user = User.create!(email: "moisesalmeida@gmail.com", password: "110302", role: User::TYPE_OWNER)
     guesthouse = user.create_guesthouse!(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
@@ -35,7 +35,7 @@ describe 'user view custom price in the room' do
 
     fill_in "E-mail",	with: "moisesalmeida@gmail.com"
     fill_in "Senha",	with: "110302"
-    within "form" do
+    within ".actions" do
       click_on "Entrar"
     end
 

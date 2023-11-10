@@ -32,7 +32,7 @@ describe 'user edit room in the guesthouse' do
 
     fill_in "E-mail",	with: "moisesalmeida@gmail.com"
     fill_in "Senha",	with: "110302"
-    within "form" do
+    within ".actions" do
       click_on "Entrar"
     end
 
@@ -90,7 +90,7 @@ describe 'user edit room in the guesthouse' do
 
     fill_in "E-mail",	with: "moisesalmeida@gmail.com"
     fill_in "Senha",	with: "110302"
-    within "form" do
+    within ".actions" do
       click_on "Entrar"
     end
 

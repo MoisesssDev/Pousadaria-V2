@@ -127,7 +127,7 @@ describe 'user views rooms in the guesthouse' do
 
     fill_in "E-mail",	with: "moisesalmeida@gmail.com"
     fill_in "Senha",	with: "110302"
-    within "form" do
+    within ".actions" do
       click_on "Entrar"
     end
 
@@ -135,7 +135,7 @@ describe 'user views rooms in the guesthouse' do
     click_on "Ver quartos desabilitados"
 
     # Assert
-    expect(page).to have_content ('Quartos desabilitados')  
+    expect(page).to have_content('Quartos desabilitados')  
     expect(page).to have_content('Quarto Sol')
     expect(page).to have_content('Descrição da sala')
     expect(page).to have_content('Área: 30')

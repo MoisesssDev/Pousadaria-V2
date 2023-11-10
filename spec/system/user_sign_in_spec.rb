@@ -7,9 +7,10 @@ describe "user is authenticated" do
     # Act
     visit root_path
     click_on "Entrar"
-    within "form" do
-      fill_in "E-mail",	with: "moises@teste.com" 
-      fill_in "Senha",	with: "123456mo" 
+    fill_in "E-mail",	with: "moises@teste.com" 
+    fill_in "Senha",	with: "123456mo" 
+
+    within ".actions" do
       click_on "Entrar"
     end
 
@@ -28,9 +29,10 @@ describe "user is authenticated" do
     # Act
     visit root_path
     click_on "Entrar"
-    within "form" do
-      fill_in "E-mail",	with: "moises@teste.com" 
-      fill_in "Senha",	with: "123456mo" 
+    fill_in "E-mail",	with: "moises@teste.com" 
+    fill_in "Senha",	with: "123456mo" 
+
+    within ".actions" do
       click_on "Entrar"
     end
     click_on "Sair"

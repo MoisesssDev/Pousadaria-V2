@@ -38,6 +38,11 @@ class GuesthousesController < ApplicationController
     end
   end
 
+  def by_city
+    @city = params[:city]
+    @guesthouses = Guesthouse.where(city: @city)
+  end
+
   private
 
   def guesthouse_params

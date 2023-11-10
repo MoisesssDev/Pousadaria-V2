@@ -41,7 +41,7 @@ describe "user register guesthouse" do
       click_on "Entrar / Cadastrar"
       fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
       fill_in "Senha",	with: "32415mo"
-      within "form" do
+      within ".actions" do
         click_on "Entrar"
       end
   
@@ -71,11 +71,13 @@ describe "user register guesthouse" do
       visit root_path
       click_on "Entrar / Cadastrar"
       click_on "Criar conta"
+
       fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
       fill_in "Senha",	with: "32415mo"
       fill_in "Confirme sua senha",	with: "32415mo"
       select "Dono de Pousada", from: "Tipo"
       click_on "Salvar"
+
       fill_in 'Nome', with: 'Seu Zé'
       fill_in 'Razão social', with: 'Pousada Seu Zé'
       fill_in 'Telefone', with: '79 9 8876-9032'
@@ -90,6 +92,7 @@ describe "user register guesthouse" do
       fill_in 'Políticas', with: 'Suas Políticas'
       fill_in 'Check-in', with: '08:00 AM'
       fill_in 'Check-out', with: '12:00 PM'
+
       click_on "Salvar"
   
       # Assert
@@ -107,7 +110,7 @@ describe "user register guesthouse" do
       click_on "Entrar / Cadastrar"
       fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
       fill_in "Senha",	with: "32415mo"
-      within "form" do
+      within ".actions" do
         click_on "Entrar"
       end
       fill_in 'Nome', with: 'Seu Zé'
