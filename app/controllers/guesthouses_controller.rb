@@ -40,7 +40,7 @@ class GuesthousesController < ApplicationController
 
   def by_city
     @city = params[:city]
-    @guesthouses = Guesthouse.where(city: @city)
+    @guesthouses = Guesthouse.active.where(city: @city).order(:name)
   end
 
   private

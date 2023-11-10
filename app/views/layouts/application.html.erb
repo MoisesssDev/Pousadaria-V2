@@ -24,11 +24,6 @@
         <h1><%= link_to "Pousadaria", root_path %></h1>
 
         <div class="menu">
-          <%= form_tag guesthouses_by_city_path, method: :get do %>
-            <label for="city">Selecione uma cidade:</label>
-            <%= select_tag :city, options_for_select(Guesthouse.pluck(:city).uniq) %>
-            <%= submit_tag 'Pesquisar' %>
-          <% end %>
 
           <% if user_signed_in? %>
           
