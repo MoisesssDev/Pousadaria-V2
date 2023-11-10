@@ -21,12 +21,29 @@ class GuesthousesController < ApplicationController
     )
     @rooms = @guesthouse.rooms.where(available: true)
   end
+
+  def edit
+    @guesthouse = Guesthouse.find(
+    params[:id]
+    )
+  end
+
+  def update
+    @guesthouse = Guesthouse.find(params[:id])
+
+    if @guesthouse.update(guesthouse_params)
+      redirect_to guesthouse_path(@guesthouse), notice: "Pousada atualizado com sucesso"
+    else
+      render "edit", status: :unprocessable_entity
+    end
+  end
+
   private
 
   def guesthouse_params
     params.require(:guesthouse).permit(:name, :legal_name, :cnpj, :phone, :email, 
                                        :address, :district, :state, :city, :cep, 
                                        :description, :accepted_payment_methods, 
-                                       :accepts_pets, :policies, :check_in_time, :check_out_time)
+                                       :accepts_pets, :policies, :check_in_time, :check_out_time, :available)
   end
 end

@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :rooms, only: [:new, :create, :edit, :update, :index, :show]
   resources :custom_prices, only: [:new, :create]
-  resources :guesthouses, only: [:new, :create, :show]
+  resources :guesthouses, only: [:new, :create, :show, :edit, :update]
 end

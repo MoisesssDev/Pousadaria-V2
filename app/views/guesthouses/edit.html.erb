@@ -1,0 +1,93 @@
+<h1>Editar pousada</h1>
+
+<%= form_for @guesthouse do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :legal_name %>
+    <%= f.text_field :legal_name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cnpj %>
+    <%= f.text_field :cnpj, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.text_field :phone, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :district %>
+    <%= f.text_field :district, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cep %>
+    <%= f.text_field :cep, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :accepted_payment_methods %>
+    <%= f.text_field :accepted_payment_methods %>
+  </div>
+
+  <div class="field">
+    <%= f.label :accepts_pets %>
+    <%= f.check_box :accepts_pets %>
+  </div>
+
+  <div class="field">
+    <%= f.label :policies %>
+    <%= f.text_area :policies %>
+  </div>
+
+  <div class="field">
+    <%= f.label :check_in_time %>
+    <%= f.time_field :check_in_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :check_out_time %>
+    <%= f.time_field :check_out_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :available %>
+    <%= f.check_box :available %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Salvar" %>
+  </div>
+  
+<% end %>

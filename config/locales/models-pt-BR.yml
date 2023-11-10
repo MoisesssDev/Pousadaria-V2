@@ -26,6 +26,7 @@ pt-BR:
         policies: "Políticas"
         check_in_time: "Check-in"
         check_out_time: "Check-out"
+        available: "Ativo"
       room:
         name: "Nome"
         description: "Descrição"
