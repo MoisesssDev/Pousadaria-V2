@@ -43,6 +43,11 @@ class GuesthousesController < ApplicationController
     @guesthouses = Guesthouse.active.where(city: @city).order(:name)
   end
 
+  def search
+    @query = params[:query]
+    @guesthouses = search_guesthouses(@query)
+  end
+
   private
 
   def guesthouse_params
@@ -51,4 +56,9 @@ class GuesthousesController < ApplicationController
                                        :description, :accepted_payment_methods, 
                                        :accepts_pets, :policies, :check_in_time, :check_out_time, :available)
   end
+
+  def search_guesthouses(query)
+    Guesthouse.where("name LIKE :query OR district LIKE :query OR city LIKE :query", query: "%#{query}%")
+  end
+  
 end

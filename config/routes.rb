@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :custom_prices, only: [:new, :create]
   resources :guesthouses, only: [:new, :create, :show, :edit, :update]
   get 'guesthouses_by_city', to: 'guesthouses#by_city', as: :guesthouses_by_city
+  get 'search_guesthouses', to: 'guesthouses#search', as: :search_guesthouses
 end

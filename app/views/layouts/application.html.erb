@@ -24,6 +24,12 @@
         <h1><%= link_to "Pousadaria", root_path %></h1>
 
         <div class="menu">
+          <div class="search">
+            <%= form_tag search_guesthouses_path, method: :get do %>
+              <%= text_field_tag :query, params[:query], placeholder: "Buscar pousadas..." %>
+              <%= submit_tag "Buscar" %>
+            <% end %>
+          </div>
 
           <% if user_signed_in? %>
           

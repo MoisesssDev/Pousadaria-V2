@@ -1,0 +1,38 @@
+<h2 class="title-guesthouses">Pousadas à disposição em destinos encantadores.</h2>
+
+<section id="guesthouses-grid">
+  <% if @guesthouses.any? %>
+    <h3>Resultados da busca para '<%= @query %>'</h3>
+    <p>Quantidade de pousadas encontradas: <%= @guesthouses.count %></p>
+  <% end %>
+
+  <div class="guesthouses">
+    <% if @guesthouses.any? %>
+
+      <% @guesthouses.each do |guesthouse| %>
+
+        <div class="card-guesthouse">
+
+          <p class="description">
+            <%= truncate(guesthouse.description, length: 70) %>
+          </p>
+          
+          <h2 class="title"> <%= link_to guesthouse.name, guesthouse_path(guesthouse) %>  </h2>
+
+          <p class="informations">
+            <%= guesthouse.state + " | " + guesthouse.district + " | " + guesthouse.address %>
+          </p>
+          
+          <p class="contact">
+            <%= guesthouse.phone %>
+          </p>
+
+        </div>
+
+      <% end %>
+    <% else %>
+      <p>Nenhuma pousada encontrada para o termo "<%= @query %>".</p>
+    <% end %>
+
+  </div>
+</section>
