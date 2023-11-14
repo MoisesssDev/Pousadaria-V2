@@ -23,20 +23,23 @@
       <nav>
         <h1><%= link_to "Pousadaria", root_path %></h1>
 
-        <div class="menu">
-          <div class="search">
+        <div class="search">
             <%= form_tag search_guesthouses_path, method: :get do %>
-              <%= text_field_tag :query, params[:query], placeholder: "Buscar pousadas..." %>
-              <%= submit_tag "Buscar" %>
+              <%= text_field_tag :query, params[:query], placeholder: "Buscar pousadas...", id: "input-search" %>
+              <%= submit_tag "Buscar", id: "button-search" %>
             <% end %>
           </div>
 
+        <div class="menu">
           <% if user_signed_in? %>
           
-          <% if current_user.guesthouse.present? %>
-            <%= link_to "Minha pousada", guesthouse_path(current_user.guesthouse) %>
-          <% end %>
-            <%= current_user.email %> / <%= button_to "Sair", destroy_user_session_path, method: :delete %>
+            <% if current_user.guesthouse.present? %>
+              <%= link_to "Minha pousada", guesthouse_path(current_user.guesthouse), id: "my-guesthouse" %>
+            <% end %>
+
+            <div class="session">
+              <%= button_to "Sair", destroy_user_session_path, method: :delete %>
+            </div>
           <% else %>
             <%= link_to "Entrar / Cadastrar", new_user_session_path %>
           <% end %>
