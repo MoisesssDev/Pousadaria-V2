@@ -1,16 +1,24 @@
 <h2 class="title-guesthouses">Pousadas à disposição em destinos encantadores.</h2>
 
 <section id="guesthouses-grid">
-  <h3>Pousadas em <%= @city %></h3>
 
-  <%= form_tag guesthouses_by_city_path, method: :get, remote: true do %>
-    <div class="field">
-      <%= label_tag :city, "Cidades:" %>
-      <%= select_tag :city, options_for_select(Guesthouse.pluck(:city).uniq, params[:city]), onchange: "this.form.submit();" %>
-    </div>
+  <div class="menu-grid">
+    <% if @all_cities %>
+      <h3 class="title-grid">Todas as pousadas</h3>
+    <% else %>
+      <h3 class="title-grid">Pousadas em <%= @city %></h3>
+    <% end %>
+    
+    <%= form_tag guesthouses_by_city_path, method: :get, remote: true do %>
+      <div class="select-by-city">
+        <%= label_tag :city, "Cidades:" %>
+        <%= select_tag :city, options_for_select([["Todas", "all"]] + Guesthouse.pluck(:city).uniq, params[:city]), onchange: "this.form.submit();" %>
 
-    <%= submit_tag "Filtrar" %>
-  <% end %>
+        <%= submit_tag "Filtrar", id: "button-filter" %>
+      </div>
+
+    <% end %>
+  </div>
 
   <div class="guesthouses">
     <% @guesthouses.each do |guesthouse| %>
@@ -24,7 +32,7 @@
       <h2 class="title"> <%= link_to guesthouse.name, guesthouse_path(guesthouse) %>  </h2>
 
       <p class="informations">
-        <%= guesthouse.state + " | " + guesthouse.district + " | " + guesthouse.address %>
+        <%= guesthouse.state + " | " + guesthouse.city + " | " + guesthouse.address %>
       </p>
       
       <p class="contact">

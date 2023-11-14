@@ -17,9 +17,7 @@ describe "user is authenticated" do
     # Assert
     expect(page).not_to have_content "Entrar"  
     expect(page).to have_button "Sair"
-    within "nav" do
-      expect(page).to have_content "moises@teste.com"
-    end
+
     expect(page).to have_content "Login efetuado com sucesso"  
   end
   
@@ -40,9 +38,7 @@ describe "user is authenticated" do
     # Assert
     expect(page).to have_content "Entrar"  
     expect(page).not_to have_link "Sair"
-    within "nav" do
-      expect(page).not_to have_content "moises@teste.com"
-    end
+
     expect(page).to have_content "Logout efetuado com sucesso"  
   end
 

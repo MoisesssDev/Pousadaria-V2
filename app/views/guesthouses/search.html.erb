@@ -2,8 +2,8 @@
 
 <section id="guesthouses-grid">
   <% if @guesthouses.any? %>
-    <h3>Resultados da busca para '<%= @query %>'</h3>
-    <p>Quantidade de pousadas encontradas: <%= @guesthouses.count %></p>
+    <h3 class="title-grid">Resultados da busca para '<%= @query %>'</h3>
+    <p class="subtitle-grid">Quantidade de pousadas encontradas: <%= @guesthouses.count %></p>
   <% end %>
 
   <div class="guesthouses">
@@ -20,7 +20,7 @@
           <h2 class="title"> <%= link_to guesthouse.name, guesthouse_path(guesthouse) %>  </h2>
 
           <p class="informations">
-            <%= guesthouse.state + " | " + guesthouse.district + " | " + guesthouse.address %>
+            <%= guesthouse.state + " | " + guesthouse.city + " | " + guesthouse.address %>
           </p>
           
           <p class="contact">

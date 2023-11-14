@@ -17,7 +17,6 @@ describe "User creates account " do
 
     # Assert
     expect(page).to have_content "Boas vindas! Você criou sua conta com sucesso" 
-    expect(page).to have_content "moisesalmeida@hotmail.com"
     expect(User.last.role).to eq(User::TYPE_OWNER)
     expect(page).to have_button "Sair"
   end

@@ -40,7 +40,14 @@ class GuesthousesController < ApplicationController
 
   def by_city
     @city = params[:city]
-    @guesthouses = Guesthouse.active.where(city: @city).order(:name)
+    @all_cities = @city == "all"
+    
+    if @all_cities
+      @guesthouses = Guesthouse.all
+    else
+      @guesthouses = Guesthouse.active.where(city: @city).order(:name)
+    end
+
   end
 
   def search
