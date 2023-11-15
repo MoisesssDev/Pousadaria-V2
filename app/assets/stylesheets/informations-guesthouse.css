@@ -89,3 +89,7 @@
   -webkit-box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.59);
   -moz-box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.59);
 }
+
+.informations-guesthouse .admin-buttons a:hover {
+  text-decoration: underline;
+}

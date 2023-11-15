@@ -36,13 +36,11 @@ describe 'user views rooms in the guesthouse' do
     expect(page).to have_content('Área: 30')
     expect(page).to have_content('Quantidade máxima de pessoas: 2')
     expect(page).to have_content('R$150,00')
-    expect(page).to have_content('Tem banheiro')
-    expect(page).to have_content('Tem varanda')
-    expect(page).to have_content('Tem ar-condicionado')
-    expect(page).to have_content('Não tem TV')
+    expect(page).to have_content('Banheiro privado')
+    expect(page).to have_content('Possui varanda')
+    expect(page).to have_content('Ar-condicionado')
     expect(page).to have_content('Tem guarda-roupa')
-    expect(page).to have_content('Acessível')
-    expect(page).to have_content('Não tem cofre')
+    expect(page).to have_content('Acessível para PCD')
     expect(page).to have_link('Fazer reserva')
 
   end

@@ -120,8 +120,8 @@ describe 'user edit room in the guesthouse' do
     expect(page).to have_content 'Quarto atualizado com sucesso'  
     expect(page).to have_content 'Quarto Solar'
     expect(page).to have_content 'R$90,50'
-    expect(page).to have_content 'Não tem TV'
-    expect(page).to have_content 'Não tem guarda-roupa'
+    expect(page).not_to have_content 'Possui TV'
+    expect(page).not_to have_content 'Tem guarda-roupa'
 
   end
   

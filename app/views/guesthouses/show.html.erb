@@ -15,11 +15,13 @@
   <div class="general-informations">
     <p>Check-in: <%= @guesthouse.check_in_time.strftime("%H:%M") %></p>
     <p>Check-out: <%= @guesthouse.check_out_time.strftime("%H:%M") %></p>
-    <p><%= @guesthouse.accepted_payment_methods %></p>
+    <p> Meios de pagamento: <%= @guesthouse.accepted_payment_methods %></p>
     <p><%= @guesthouse.accepts_pets ? "Aceita pets" : "Não aceita pets" %></p>
   </div>
 
-  <p class="policies-guesthouse"><strong>Políticas:</strong> <%= @guesthouse.policies %></p>
+  <% if @guesthouse.policies.present? %>
+    <p class="policies-guesthouse"><strong>Políticas:</strong> <%= @guesthouse.policies %></p>
+  <% end %>
 
   <div class="contact-guesthouse">
     <p class="informations-contact">
@@ -36,29 +38,70 @@
   <% end %>
 </section>
 
-<div>
-  <h2>Quartos disponíveis</h2>
+<h2 class="title-rooms">Quartos disponíveis</h2>
+
+<section class="rooms-grid">
+
   <% if @rooms.empty? %>
     <p>Não possui nenhum quarto disponível</p>
   <% end %>
 
-  <% @rooms.each do |room| %>
+  <div class="rooms">
+    <% @rooms.each do |room| %>
     
-    <p><%= link_to room.name, room_path(room) %></p>
-    <p><%= room.description %></p>
-    <p>Área: <%= room.dimension %></p>
-    <p>Quantidade máxima de pessoas: <%= room.max_occupancy %></p>
-    <p>R$<%= number_with_precision(room.daily_rate, precision: 2, separator: ',') %></p>
-    <p><%= room.has_private_bathroom ? "Tem banheiro" : "Não tem banheiro" %></p>
-    <p><%= room.has_balcony ? "Tem varanda" : "Não tem varanda" %></p>
-    <p><%= room.has_air_conditioning ? "Tem ar-condicionado" : "Não tem ar-condicionado" %></p>
-    <p><%= room.has_tv ? "Tem TV" : "Não tem TV" %></p>
-    <p><%= room.has_wardrobe ? "Tem guarda-roupa" : "Não tem guarda-roupa" %></p>
-    <p><%= room.is_accessible ? "Acessível" : "Não é acessível" %></p>
-    <p><%= room.has_cofre ? "Tem cofre" : "Não tem cofre" %></p>
-    <a href="#">Fazer reserva</a>
+      <div class="card-room">
+        <p class="description"><%= room.description %></p>
 
-  <% end %>
-</div>
+        <% if user_signed_in? && current_user.guesthouse.id == @guesthouse.id %>
+          <p class="title"><%= link_to room.name, room_path(room) %></p>
+        <% else %>
+          <p class="title-visit"><%= room.name %></p>
+        <% end %>
+
+        <div class="informations">
+          <p>Área: <%= room.dimension %>m²</p>
+          <p>Quantidade máxima de pessoas: <%= room.max_occupancy %></p>
+        </div>
+        
+        <div class="more-informations">
+          <% if room.has_private_bathroom %>
+            <p>Banheiro privado</p>
+          <% end %>
+
+          <% if room.has_balcony %>
+            <p>Possui varanda</p>
+          <% end %>
+
+          <% if room.has_air_conditioning %>
+            <p>Ar-condicionado</p>
+          <% end %>
+
+          <% if room.has_tv %>
+            <p>Possui TV</p>
+          <% end %>
+
+          <% if room.has_wardrobe %>
+            <p>Tem guarda-roupa</p>
+          <% end %>
+
+          <% if room.is_accessible %>
+            <p>Acessível para PCD</p>
+          <% end %>
+
+          <% if room.has_cofre %>
+            <p>Possui cofre</p>
+          <% end %>
+
+        </div>
+
+        <div class="menu">
+          <p>R$<%= number_with_precision(room.daily_rate, precision: 2, separator: ',') %><small>/noite</small></p>
+          <a href="#">Fazer reserva</a>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</section>
 
 

@@ -1,0 +1,116 @@
+/* SHOW GUESTHOUSE */
+.title-rooms {
+  letter-spacing: 5px;
+  margin: 50px 0;
+  text-align: end;
+  width: 50%;
+  color: var(--light-red);
+  border-bottom: 10px solid var(--light-red);
+  font-size: 28px;
+  padding-bottom: 20px;
+  opacity: 0.8;
+}
+
+.rooms-grid {
+  padding: 10px 5%;
+}
+
+.rooms-grid .card-room {
+  width: 440px;
+  background: var(--light-gray);
+  box-shadow: 1px 8px 12px 1px rgba(0,0,0,0.61);
+  -webkit-box-shadow: 1px 8px 12px 1px rgba(0,0,0,0.61);
+  -moz-box-shadow: 1px 8px 12px 1px rgba(0,0,0,0.61);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.rooms-grid .card-room .description {
+  opacity: 0.6;
+  padding: 5px 20px;
+  letter-spacing: 3px;
+  font-size: 15px;
+}
+
+.rooms-grid .card-room .title a, .rooms-grid .card-room .title-visit {
+  text-decoration: none;
+  color: var(--black-color);
+  letter-spacing: 3px;
+  font-size: 26px;
+  padding: 0 20px;
+  text-shadow: -2px 2px 2px rgba(67, 67, 67, 0.57);
+}
+
+.rooms-grid .card-room .informations {
+  letter-spacing: 3px;
+  font-weight: 600;
+  line-height: 1.3;
+  opacity: 0.6;
+  padding: 5px 20px;
+  font-size: 13px;
+}
+
+.rooms-grid .card-room .more-informations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.rooms-grid .card-room .more-informations p {
+  letter-spacing: 1px;
+  align-items: center;
+  text-align: center;
+  padding: 7px;
+  background-color: var(--black-color);
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 3px 3px;
+  color: var(--light-gray);
+  box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.59);
+  -webkit-box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.59);
+  -moz-box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.59);
+}
+
+.rooms-grid .card-room .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.rooms-grid .card-room .menu p {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.rooms-grid .card-room .menu small{
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.rooms-grid .card-room .menu a {
+  text-decoration: none;
+  letter-spacing: 2px;
+  margin-right: 5px;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 15px 15px;
+  background-color: var(--light-red);
+  color: var(--light-gray);
+  border-radius: 5px;
+  box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.59);
+  -webkit-box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.59);
+  -moz-box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.59);
+  transition: 0.7s;
+}
+
+.rooms-grid .card-room .menu a:hover {
+  text-decoration: underline;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+}
