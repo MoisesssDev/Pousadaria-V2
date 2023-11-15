@@ -1,0 +1,91 @@
+/* SHOW GUESTHOUSE */
+.informations-guesthouse {
+  padding: 20px 15%;
+}
+
+/* HEADER GUESTHOUSE */
+.informations-guesthouse .header-guesthouse {
+  padding: 20px 0;
+}
+
+.informations-guesthouse .header-guesthouse .name-guesthouse {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+.informations-guesthouse .header-guesthouse .description-guesthouse {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  opacity: 0.7;
+  line-height: 2;
+}
+
+/* CONTACT GUESTHOUSE */
+.informations-guesthouse .contact-guesthouse {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-align: end;
+}
+
+/* ADDRESS GUESTHOUSE */
+.informations-guesthouse .address-guesthouse {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  opacity: 0.8;
+}
+
+/* GENERAL INFORMATIONS GUESTHOUSE */
+.informations-guesthouse .general-informations {
+  display: flex;
+  padding: 10px 0;
+}
+
+.informations-guesthouse .general-informations p {
+  padding: 5px 10px;
+  background-color: var(--light-gray);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--light-red);
+  margin-right: 5px;
+}
+
+/* POLICIES GUESTHOUSE */
+.informations-guesthouse .policies-guesthouse {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  opacity: 0.8;
+  width: 70%;
+  padding: 20px 0;
+}
+
+.informations-guesthouse .policies-guesthouse strong {
+  color: var(--red-color);
+  font-weight: 700;
+}
+
+/* ADMIN BUTTONS */
+
+.informations-guesthouse .admin-buttons {
+  padding: 20px 0;
+}
+
+.informations-guesthouse .admin-buttons a{
+  letter-spacing: 2px;
+  margin-right: 5px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 8px 15px;
+  background-color:var(--light-red);
+  color: var(--white-color);
+  border-radius: 5px;
+  box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.59);
+  -webkit-box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.59);
+  -moz-box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.59);
+}

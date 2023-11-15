@@ -18,8 +18,6 @@ describe 'User view guesthouses details' do
 
     # Assert
     expect(page).to have_content('Pousada Renascer')
-    expect(page).to have_content('Razão Social da Pousada')
-    expect(page).to have_content('12345678901234')
     expect(page).to have_content('79 98837-7894')
     expect(page).to have_content('Rua Alemedo, 54')
     expect(page).to have_content('Cocora')

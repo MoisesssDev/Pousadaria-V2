@@ -1,30 +1,40 @@
-<div>
-  <h1><%= @guesthouse.name %></h1>
+<section class="informations-guesthouse">
 
-  <p><%= @guesthouse.legal_name %></p>
-  <p><%= @guesthouse.cnpj %></p>
-  <p><%= @guesthouse.phone %></p>
-  <p><%= @guesthouse.email %></p>
-  <p><%= @guesthouse.address %></p>
-  <p><%= @guesthouse.district %></p>
-  <p><%= @guesthouse.state %></p>
-  <p><%= @guesthouse.city %></p>
-  <p><%= @guesthouse.cep %></p>
-  <p><%= @guesthouse.description %></p>
-  <p><%= @guesthouse.accepted_payment_methods %></p>
-  <p><%= @guesthouse.accepts_pets ? "Aceita pets" : "Não aceita pets" %></p>
-  <p><%= @guesthouse.policies %></p>
-  <p>Check-in: <%= @guesthouse.check_in_time.strftime("%H:%M") %></p>
-  <p>Check-out: <%= @guesthouse.check_out_time.strftime("%H:%M") %></p>
-</div>
-
-<% if user_signed_in? && current_user.guesthouse.id == @guesthouse.id %>
-  <div>
-    <%= link_to "Adicionar quarto", new_room_path %>
-    <%= link_to "Ver quartos desabilitados", rooms_path %>
-    <%= link_to "Editar pousada", edit_guesthouse_path(@guesthouse) %>
+  <div class="header-guesthouse">
+    <h1 class="name-guesthouse"><%= @guesthouse.name %></h1>
+    <p class="description-guesthouse"><%= @guesthouse.description %></p>
   </div>
-<% end %>
+
+  <div class="address-guesthouse">
+    <p class="informations-address">
+      <%= @guesthouse.address %> | <%= @guesthouse.district %> | <%= @guesthouse.state %> | 
+      <%= @guesthouse.city %> | CEP: <%= @guesthouse.cep %>
+    </p>
+  </div>
+
+  <div class="general-informations">
+    <p>Check-in: <%= @guesthouse.check_in_time.strftime("%H:%M") %></p>
+    <p>Check-out: <%= @guesthouse.check_out_time.strftime("%H:%M") %></p>
+    <p><%= @guesthouse.accepted_payment_methods %></p>
+    <p><%= @guesthouse.accepts_pets ? "Aceita pets" : "Não aceita pets" %></p>
+  </div>
+
+  <p class="policies-guesthouse"><strong>Políticas:</strong> <%= @guesthouse.policies %></p>
+
+  <div class="contact-guesthouse">
+    <p class="informations-contact">
+      Tel: <%= @guesthouse.phone %> | E-mail: <%= @guesthouse.email %>
+    </p>
+  </div>
+
+  <% if user_signed_in? && current_user.guesthouse.id == @guesthouse.id %>
+    <div class="admin-buttons">
+      <%= link_to "Adicionar quarto", new_room_path %>
+      <%= link_to "Ver quartos desabilitados", rooms_path %>
+      <%= link_to "Editar pousada", edit_guesthouse_path(@guesthouse) %>
+    </div>
+  <% end %>
+</section>
 
 <div>
   <h2>Quartos disponíveis</h2>
