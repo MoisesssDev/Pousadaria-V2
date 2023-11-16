@@ -45,3 +45,7 @@ pt-BR:
         start_date: "Data inicial"
         end_date: "Data final"
         price: "Preço"
+      reservation:
+        entry_date: "Data de entrada"
+        departure_date: "Data de saída"
+        number_of_guests: "Quantidade de hóspedes"

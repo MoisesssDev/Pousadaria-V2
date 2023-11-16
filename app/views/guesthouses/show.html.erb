@@ -96,7 +96,7 @@
 
         <div class="menu">
           <p>R$<%= number_with_precision(room.daily_rate, precision: 2, separator: ',') %><small>/noite</small></p>
-          <a href="#">Fazer reserva</a>
+          <%= link_to "Fazer reserva", new_room_reservation_path(room_id: room.id) %>
         </div>
       </div>
 
