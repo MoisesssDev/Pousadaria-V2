@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   
   get 'guesthouses_by_city', to: 'guesthouses#by_city', as: :guesthouses_by_city
   get 'search_guesthouses', to: 'guesthouses#search', as: :search_guesthouses
+  post '/reservations/:room_id/check_availability', to: 'reservations#check_availability', as: :check_availability
 end

@@ -35,12 +35,11 @@
   <% if @room.has_cofre %>
     <p>Possui cofre</p>
   <% end %>
-
-
+</div>
 
 <h2>Fazer Reserva</h2>
 
-<%= form_with(model: @reservation, url: room_reservations_path, local: true) do |form| %>
+<%= form_with(model: @reservation, url: check_availability_path(@room), local: true) do |form| %>
   <%# Aqui vão os campos do formulário %>
 
   <div class="field">
@@ -62,3 +61,5 @@
     <%= form.submit 'Verificar Disponibilidade' %>
   </div>
 <% end %>
+
+<p><%= @message %></p>
