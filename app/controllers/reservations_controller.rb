@@ -2,7 +2,6 @@ class ReservationsController < ApplicationController
   before_action :find_room, only: [:new, :check_availability]
   
   def new
-    @room = Room.find(params[:room_id])
     @reservation = Reservation.new
   end
 
