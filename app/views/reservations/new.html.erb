@@ -61,4 +61,21 @@
   </div>
 <% end %>
 
-<p><%= @message %></p>
+<% if @reservation.errors.any? %>
+  <div id="error_explanation">
+    <h2>Não foi possivel verificar a reserva:</h2>
+
+    <ul>
+      <% @reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<% if @message.present? %>
+  <div class="message">
+    <p><%= @message %></p>
+  </div>
+<% end %>

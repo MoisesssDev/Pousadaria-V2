@@ -7,16 +7,19 @@ class ReservationsController < ApplicationController
 
   def check_availability
     @reservation = Reservation.new(reservation_params)
-    
-    start_date = @reservation.entry_date
-    end_date = @reservation.departure_date
+    @reservation.room = @room
 
-    if reservation_exists?(start_date, end_date)
-      @message = 'Já existe uma reserva para esta data.'
-      @total_price = nil
-    else
-      @total_price = calculate_total_price(start_date, end_date)
-      @message = "Valor total: R$ #{@total_price}"
+    if @reservation.valid?
+      start_date = @reservation.entry_date
+      end_date = @reservation.departure_date
+      
+      if reservation_exists?(start_date, end_date)
+        @message = 'Já existe uma reserva para esta data.'
+        @total_price = nil
+      else
+        @total_price = calculate_total_price(start_date, end_date)
+        @message = "Quarto disponível para essa data. Valor total: R$ #{@total_price}"
+      end
     end
   
     render 'new', status: :partial_content
