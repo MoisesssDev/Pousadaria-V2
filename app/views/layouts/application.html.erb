@@ -34,7 +34,7 @@
           <% if owner_signed_in? %>
           
             <% if current_owner.guesthouse.present? %>
-              <%= link_to "Minha pousada", guesthouse_path(current_owner.guesthouse), id: "my-guesthouse" %>
+              <%= link_to "Minha pousada", guesthouse_path(current_owner.guesthouse), id: "my-guesthouse" if current_owner.guesthouse.id.present? %>
             <% end %>
 
             <div class="session">

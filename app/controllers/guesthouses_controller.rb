@@ -9,7 +9,7 @@ class GuesthousesController < ApplicationController
     
     
     if @guesthouse.save
-      redirect_to root_path, notice: "Pousada cadastrada com sucesso"  
+      redirect_to root_path, notice: "Pousada cadastrada com sucesso"
     else
       render "new", status: :unprocessable_entity
     end
