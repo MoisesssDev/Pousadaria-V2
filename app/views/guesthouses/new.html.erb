@@ -58,7 +58,7 @@
 
   <div class="field">
     <%= f.label :accepted_payment_methods %>
-    <%= f.text_field :accepted_payment_methods %>
+    <%= f.text_field :accepted_payment_methods, required: true %>
   </div>
 
   <div class="field">
@@ -73,12 +73,12 @@
 
   <div class="field">
     <%= f.label :check_in_time %>
-    <%= f.time_field :check_in_time %>
+    <%= f.time_field :check_in_time, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :check_out_time %>
-    <%= f.time_field :check_out_time %>
+    <%= f.time_field :check_out_time, required: true %>
   </div>
 
   <div class="actions">

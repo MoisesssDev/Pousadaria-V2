@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @guesthouse = current_user.guesthouse
+    @guesthouse = current_owner.guesthouse
     @room = @guesthouse.rooms.build(room_params)
 
     if @room.save
@@ -22,7 +22,7 @@ class RoomsController < ApplicationController
 
   def update
     @room = Room.find(params[:id])
-    @guesthouse = current_user.guesthouse
+    @guesthouse = current_owner.guesthouse
 
     if @room.update(room_params)
       redirect_to guesthouse_path(@guesthouse), notice: "Quarto atualizado com sucesso"
@@ -32,7 +32,7 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @guesthouse = current_user.guesthouse
+    @guesthouse = current_owner.guesthouse
     @rooms_unavailable = @guesthouse.rooms.where(available: false)
   end
 

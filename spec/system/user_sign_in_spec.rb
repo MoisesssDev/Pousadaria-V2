@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "user is authenticated" do
   it "with sucessfully" do
     # Arrange
-    User.create!(email: "moises@teste.com", password: "123456mo", role: User::TYPE_OWNER)
+    Owner.create!(email: "moises@teste.com", password: "123456mo")
     # Act
     visit root_path
     click_on "Entrar"
@@ -23,7 +23,7 @@ describe "user is authenticated" do
   
   it "and log out" do
     # Arrange
-    User.create!(email: "moises@teste.com", password: "123456mo", role: User::TYPE_OWNER)
+    Owner.create!(email: "moises@teste.com", password: "123456mo")
     # Act
     visit root_path
     click_on "Entrar"

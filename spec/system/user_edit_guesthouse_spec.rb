@@ -1,8 +1,10 @@
-describe 'user edit room in the guesthouse' do
+require 'rails_helper'
+
+describe 'user edit guesthouse' do
   it 'and see form' do
     # Arrange
-    user = User.create!(email: "moisesalmeida@gmail.com", password: "110302", role: User::TYPE_OWNER)
-    guesthouse = user.create_guesthouse!(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
+    owner = Owner.create!(email: "moisesalmeida@gmail.com", password: "110302")
+    guesthouse = owner.create_guesthouse!(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
                                    cnpj: "12345678901234", phone: "79 98837-7894",
                                    email: "seu@email.com", address: "Rua Alemedo, 54", district: "Cocora",
                                    state: "Rio de Janeiro", city: "João Pessoa", cep: "89700-218",
@@ -45,7 +47,7 @@ describe 'user edit room in the guesthouse' do
 
   it 'and register successfully' do
     # Arrange
-    user = User.create!(email: "moisesalmeida@gmail.com", password: "110302", role: User::TYPE_OWNER)
+    user = Owner.create!(email: "moisesalmeida@gmail.com", password: "110302")
     guesthouse = user.create_guesthouse!(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
                                    cnpj: "12345678901234", phone: "79 98837-7894",
                                    email: "seu@email.com", address: "Rua Alemedo, 54", district: "Cocora",

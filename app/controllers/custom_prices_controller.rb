@@ -2,11 +2,11 @@ class CustomPricesController < ApplicationController
 
   def new
     @custom_price = CustomPrice.new
-    @rooms = current_user.guesthouse.rooms
+    @rooms = current_owner.guesthouse.rooms
   end
 
   def create
-    @guesthouse = current_user.guesthouse
+    @guesthouse = current_owner.guesthouse
     @custom_price = CustomPrice.new(custom_price_params)
     
     if custom_price_overlaps?(@custom_price)

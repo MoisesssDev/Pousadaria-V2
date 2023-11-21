@@ -9,10 +9,9 @@ describe "user register guesthouse" do
       visit root_path
       click_on "Entrar / Cadastrar"
       click_on "Criar conta"
-      fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
+      fill_in "E-mail",	with: "moisesAlmeida@hotmail.com"
       fill_in "Senha",	with: "32415mo"
       fill_in "Confirme sua senha",	with: "32415mo"
-      select "Dono de Pousada", from: "Tipo"
       click_on "Salvar"
   
       # Assert
@@ -34,7 +33,7 @@ describe "user register guesthouse" do
 
     it "after login" do
       # Arrange
-      User.create!(email: "moisesAlmeida@hotmail.com", password: "32415mo", role: User::TYPE_OWNER)
+      Owner.create!(email: "moisesAlmeida@hotmail.com", password: "32415mo")
   
       # Act
       visit root_path
@@ -75,12 +74,12 @@ describe "user register guesthouse" do
       fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
       fill_in "Senha",	with: "32415mo"
       fill_in "Confirme sua senha",	with: "32415mo"
-      select "Dono de Pousada", from: "Tipo"
       click_on "Salvar"
 
       fill_in 'Nome', with: 'Seu Zé'
       fill_in 'Razão social', with: 'Pousada Seu Zé'
       fill_in 'Telefone', with: '79 9 8876-9032'
+      fill_in 'CNPJ', with: '82.831.667/0001-09'
       fill_in 'E-mail', with: 'seuemail@example.com'
       fill_in 'Endereço', with: 'Rua Alemedo, 89'
       fill_in 'Bairro', with: 'João Pessoa'
@@ -98,12 +97,12 @@ describe "user register guesthouse" do
       # Assert
       expect(page).to have_content 'Pousada cadastrada com sucesso'
       expect(current_path).to eq(root_path)
-      expect(User.last.guesthouse.id).to eq(Guesthouse.last.id)
+      expect(Owner.last.guesthouse.id).to eq(Guesthouse.last.id)
     end
 
     it "after login" do
       # Arrange
-      User.create!(email: "moisesAlmeida@hotmail.com", password: "32415mo", role: User::TYPE_OWNER)
+      Owner.create!(email: "moisesAlmeida@hotmail.com", password: "32415mo")
   
       # Act
       visit root_path
@@ -116,6 +115,7 @@ describe "user register guesthouse" do
       fill_in 'Nome', with: 'Seu Zé'
       fill_in 'Razão social', with: 'Pousada Seu Zé'
       fill_in 'Telefone', with: '79 9 8876-9032'
+      fill_in 'CNPJ', with: '82.831.667/0001-09'
       fill_in 'E-mail', with: 'seuemail@example.com'
       fill_in 'Endereço', with: 'Rua Alemedo, 89'
       fill_in 'Bairro', with: 'João Pessoa'

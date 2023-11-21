@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'user view custom price in the room' do
   it 'and see custom price' do
     # Arrange
-    user = User.create!(email: "moisesalmeida@gmail.com", password: "110302", role: User::TYPE_OWNER)
+    user = Owner.create!(email: "moisesalmeida@gmail.com", password: "110302")
     guesthouse = user.create_guesthouse!(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
                                    cnpj: "12345678901234", phone: "79 98837-7894",
                                    email: "seu@email.com", address: "Rua Alemedo, 54", district: "Cocora",

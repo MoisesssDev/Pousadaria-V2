@@ -4,12 +4,12 @@ class GuesthousesController < ApplicationController
   end
 
   def create
-    @user = current_user
+    @user = current_owner
     @guesthouse = @user.build_guesthouse(guesthouse_params)
     
     
     if @guesthouse.save
-      redirect_to root_path, notice: "Pousada cadastrada com sucesso"     
+      redirect_to root_path, notice: "Pousada cadastrada com sucesso"  
     else
       render "new", status: :unprocessable_entity
     end

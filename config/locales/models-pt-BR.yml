@@ -1,14 +1,14 @@
 pt-BR:
   activerecord:
     models:
-      user: "Usuário"
+      owner: "Usuário"
       guesthouse: "Pousada"
       room: "Quarto"
     attributes:
-      user:
+      owner:
         email: "E-mail"
         password: "Senha"
-        role: "Tipo"
+        password_confirmation: "Confirme sua senha"
       guesthouse:
         name: "Nome"
         legal_name: "Razão social"

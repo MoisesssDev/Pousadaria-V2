@@ -5,14 +5,13 @@ describe 'authenticated user(owner) registers room' do
   context "by login" do
     it 'and see the edit form' do
       # Arrange
-      user = User.create!(email: "moisesalmeida@gmail.com", password: "110302", role: User::TYPE_OWNER)
-      guesthouse = user.build_guesthouse(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
-                                     cnpj: "12345678901234", phone: "79 98837-7894",
-                                     email: "seu@email.com", address: "Rua Alemedo, 54", district: "Cocora",
-                                     state: "Rio de Janeiro", city: "Cidade da Pousada", cep: "CEP da Pousada",
-                                     description: "Descrição da Pousada", accepted_payment_methods: "Métodos de pagamento aceitos",
-                                     accepts_pets: true, policies: "Políticas de Uso da Pousada", check_in_time: "10:00:00", check_out_time: "14:00:00")
-      guesthouse.save
+      owner = Owner.create!(email: "moisesalmeida@gmail.com", password: "110302")
+      guesthouse = owner.create_guesthouse!(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
+                                   cnpj: "12345678901234", phone: "79 98837-7894",
+                                   email: "seu@email.com", address: "Rua Alemedo, 54", district: "Cocora",
+                                   state: "Rio de Janeiro", city: "João Pessoa", cep: "89700-218",
+                                   description: "Descrição da Pousada", accepted_payment_methods: "Cartão, Pix ou Boleto",
+                                   accepts_pets: true, policies: "Políticas de Uso da Pousada", check_in_time: "10:00:00", check_out_time: "14:00:00")
   
       # Act
       visit root_path
@@ -44,14 +43,13 @@ describe 'authenticated user(owner) registers room' do
 
     it "and register with sucess" do
       # Arrange
-      user = User.create!(email: "moisesalmeida@gmail.com", password: "110302", role: User::TYPE_OWNER)
-      guesthouse = user.build_guesthouse(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
-                                     cnpj: "12345678901234", phone: "79 98837-7894",
-                                     email: "seu@email.com", address: "Rua Alemedo, 54", district: "Cocora",
-                                     state: "Rio de Janeiro", city: "Cidade da Pousada", cep: "CEP da Pousada",
-                                     description: "Descrição da Pousada", accepted_payment_methods: "Métodos de pagamento aceitos",
-                                     accepts_pets: true, policies: "Políticas de Uso da Pousada", check_in_time: "10:00:00", check_out_time: "14:00:00")
-      guesthouse.save
+      owner = Owner.create!(email: "moisesalmeida@gmail.com", password: "110302")
+      guesthouse = owner.create_guesthouse!(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
+                                   cnpj: "12345678901234", phone: "79 98837-7894",
+                                   email: "seu@email.com", address: "Rua Alemedo, 54", district: "Cocora",
+                                   state: "Rio de Janeiro", city: "João Pessoa", cep: "89700-218",
+                                   description: "Descrição da Pousada", accepted_payment_methods: "Cartão, Pix ou Boleto",
+                                   accepts_pets: true, policies: "Políticas de Uso da Pousada", check_in_time: "10:00:00", check_out_time: "14:00:00")
   
       # Act
       visit root_path

@@ -1,4 +1,4 @@
-<% if user_signed_in? && current_user.guesthouse.id == @room.guesthouse_id %>
+<% if owner_signed_in? && current_owner.guesthouse.id == @room.guesthouse_id %>
 
   <div>
     <%= link_to "Editar quarto", edit_room_path(@room) %>

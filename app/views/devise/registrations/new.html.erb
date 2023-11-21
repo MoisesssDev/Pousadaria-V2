@@ -21,11 +21,6 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :role %>
-    <%= f.select :role, [['Dono de Pousada', User::TYPE_OWNER], ['Hóspede', User::TYPE_CUSTOMER]] %>
-  </div>
-
   <div class="actions">
     <%= f.submit "Salvar" %>
   </div>

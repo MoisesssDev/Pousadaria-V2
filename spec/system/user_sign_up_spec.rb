@@ -12,12 +12,10 @@ describe "User creates account " do
     fill_in "E-mail",	with: "moisesAlmeida@hotmail.com" 
     fill_in "Senha",	with: "32415mo"
     fill_in "Confirme sua senha",	with: "32415mo"
-    select "Dono de Pousada", from: "Tipo"
     click_on "Salvar"
 
     # Assert
     expect(page).to have_content "Boas vindas! Você criou sua conta com sucesso" 
-    expect(User.last.role).to eq(User::TYPE_OWNER)
     expect(page).to have_button "Sair"
   end
   

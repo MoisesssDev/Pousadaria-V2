@@ -29,7 +29,7 @@
     </p>
   </div>
 
-  <% if user_signed_in? && current_user.guesthouse.id == @guesthouse.id %>
+  <% if owner_signed_in? && current_owner.guesthouse.id == @guesthouse.id %>
     <div class="admin-buttons">
       <%= link_to "Adicionar quarto", new_room_path %>
       <%= link_to "Ver quartos desabilitados", rooms_path %>
@@ -52,7 +52,7 @@
       <div class="card-room">
         <p class="description"><%= room.description %></p>
 
-        <% if user_signed_in? && current_user.guesthouse.id == @guesthouse.id %>
+        <% if owner_signed_in? && current_owner.guesthouse.id == @guesthouse.id %>
           <p class="title"><%= link_to room.name, room_path(room) %></p>
         <% else %>
           <p class="title-visit"><%= room.name %></p>
