@@ -2,13 +2,22 @@ pt-BR:
   activerecord:
     models:
       owner: "Usuário"
+      client: "Usuário"
       guesthouse: "Pousada"
       room: "Quarto"
     attributes:
+      client:
+        email: "E-mail"
+        password: "Senha"
+        password_confirmation: "Confirme sua senha"
+        full_name: "Nome completo"
+        cpf: "CPF"
+        remember_me: "Lembrar de mim"
       owner:
         email: "E-mail"
         password: "Senha"
         password_confirmation: "Confirme sua senha"
+        remember_me: "Lembrar de mim"
       guesthouse:
         name: "Nome"
         legal_name: "Razão social"

@@ -18,7 +18,7 @@ describe 'user edit guesthouse' do
     fill_in "E-mail",	with: "moisesalmeida@gmail.com"
     fill_in "Senha",	with: "110302"
     within ".actions" do
-      click_on "Entrar"
+      click_button "Entrar"
     end
 
     click_on "Minha pousada"

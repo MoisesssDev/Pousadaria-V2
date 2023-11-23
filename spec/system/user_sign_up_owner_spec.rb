@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "User creates account " do
+describe "User owner creates account " do
 
   it "successfully" do
     # Arrange

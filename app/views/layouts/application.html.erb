@@ -31,14 +31,17 @@
           </div>
 
         <div class="menu">
-          <% if owner_signed_in? %>
-          
-            <% if current_owner.guesthouse.present? %>
-              <%= link_to "Minha pousada", guesthouse_path(current_owner.guesthouse), id: "my-guesthouse" if current_owner.guesthouse.id.present? %>
+          <% if signed_in? %>
+            <% if owner_signed_in? && current_owner.guesthouse.present? && current_owner.guesthouse.id.present? %>
+              <%= link_to "Minha pousada", guesthouse_path(current_owner.guesthouse), id: "my-guesthouse" %>
             <% end %>
-
+            
             <div class="session">
-              <%= button_to "Sair", destroy_owner_session_path, method: :delete %>
+              <% if owner_signed_in? %>
+                <%= button_to "Sair", destroy_owner_session_path, method: :delete %>
+              <% elsif client_signed_in? %>
+                <%= button_to "Sair", destroy_client_session_path, method: :delete %>
+              <% end %>
             </div>
           <% else %>
             <%= link_to "Entrar / Cadastrar", new_owner_session_path %>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "user is authenticated" do
+describe "user owner is authenticated" do
   it "with sucessfully" do
     # Arrange
     Owner.create!(email: "moises@teste.com", password: "123456mo")
