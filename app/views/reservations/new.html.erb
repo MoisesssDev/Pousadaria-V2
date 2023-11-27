@@ -39,7 +39,7 @@
 
 <h2>Fazer Reserva</h2>
 
-<%= form_with(model: @reservation, url: check_availability_path(@room), local: true) do |form| %>
+<%= form_with(model: @reservation, url: room_check_availability_path(@room), method: :post, local: true) do |form| %>
 
   <div class="field">
     <%= form.label :entry_date %>
@@ -77,5 +77,9 @@
 <% if @message.present? %>
   <div class="message">
     <p><%= @message %></p>
+
+    <% if @total_price.present? %>
+      <%= render 'confirm_reservation_form' %>
+    <% end %>
   </div>
 <% end %>

@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :clients
+  devise_for :clients, controllers: {
+    sessions: 'clients/sessions'
+  }
+  
   devise_for :owners
   
   root to: "home#index"
 
   resources :rooms, only: [:new, :create, :edit, :update, :index, :show] do
     resources :reservations, only: [:new, :create]
+    post '/check_availability', to: 'reservations#check_availability'
   end
 
   resources :custom_prices, only: [:new, :create]

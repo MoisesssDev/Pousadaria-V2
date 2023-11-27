@@ -1,5 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :room
+  belongs_to :client, optional: true
   validate :valid_dates
 
   def valid_dates

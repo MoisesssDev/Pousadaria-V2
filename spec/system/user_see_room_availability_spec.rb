@@ -82,12 +82,14 @@ describe 'user see room availability' do
 
 
     # Assert
-    expect(page).to have_content 'Valor total: R$ 300,00' 
+    expect(page).to have_content 'Valor total: R$ 300,00'
+    expect(page).to have_button 'Confirmar reserva'
 
   end
   
   it 'and there is already a reservation for that date' do
     # Arrange
+    Client.create!(email: "moises@teste.com", password: "123456mo", full_name: "Moises Almeida Leite", cpf: "09032145622")
     user = Owner.create!(email: "moisesalmeida@gmail.com", password: "110302")
     guesthouse = user.create_guesthouse!(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
                                    cnpj: "12345678901234", phone: "79 98837-7894",
@@ -111,7 +113,7 @@ describe 'user see room availability' do
       available: true
     )
 
-    reservation = room.reservations.create!(entry_date: "2023-12-11", departure_date: "2023-12-13", number_of_guests: 2)
+    reservation = room.reservations.create!(entry_date: "2023-12-11", departure_date: "2023-12-13", number_of_guests: 2, client_id: 1)
 
     # Act
     visit root_path
@@ -128,6 +130,7 @@ describe 'user see room availability' do
 
     # Assert
     expect(page).to have_content 'Já existe uma reserva para esta data.'
+    expect(page).not_to have_button 'Confirmar reserva'
 
   end
 end

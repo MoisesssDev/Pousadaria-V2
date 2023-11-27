@@ -1,0 +1,5 @@
+<%= form_with(model: @reservation,url: room_reservations_path(@room), method: :post, local: true) do |form| %>
+  <div class="actions">
+    <%= form.submit 'Confirmar reserva' %>
+  </div>
+<% end %>
