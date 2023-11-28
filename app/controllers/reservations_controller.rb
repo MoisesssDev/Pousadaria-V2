@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :find_room, only: [:new, :check_availability]
+  before_action :find_room, only: [:new, :check_availability, :create, :show]
   
   def new
     @reservation = Reservation.new
@@ -41,27 +41,37 @@ class ReservationsController < ApplicationController
 
   def create
     if client_signed_in?
-      reservation_info = session[:reservation_data]
 
       @reservation = current_client.reservations.build
       @reservation.assign_attributes(session[:reservation_data])
+      @reservation.guesthouse = @room.guesthouse
 
       if @reservation.save
         # Limpe as informações de reserva armazenadas na sessão
         session[:reserva_info] = nil
 
         # Redirecione para a página de confirmação ou outra página relevante
-        redirect_to guesthouse_path(@reservation.room.guesthouse), notice: "Reserva criada com sucesso."
+        redirect_to room_reservation_path(@room, @reservation), notice: "Reserva criada com sucesso."
       else
         # Trate o caso em que a reserva não pode ser salva
         flash[:alert] = 'Erro ao confirmar a reserva. Por favor, tente novamente.'
-        redirect_to root_path
+        render 'new', status: :unprocessable_entity
       end
     else
       # Se o usuário não estiver logado, redirecione para a página de login
       flash[:notice] = 'Faça login para confirmar a reserva.'
       store_location_for(:client, new_room_reservation_path)
       redirect_to new_client_session_path
+    end
+  end
+
+  def show 
+    @reservation = Reservation.find(params[:id])
+  end
+
+  def index
+    if client_signed_in?
+      @reservations = current_client.reservations
     end
   end
 

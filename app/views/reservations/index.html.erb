@@ -1,0 +1,11 @@
+<% @reservations.each do |reservation| %>
+  <p>Código <%= reservation.code %> </p>
+  <p> <%= reservation.guesthouse.name %> </p>
+  <p> <%= reservation.room.name %> </p>
+  <% if reservation.confirmed? %> 
+    <p>Confirmada</p>
+  <% end %>
+  <% if reservation.canceled? %> 
+    <p>Cancelada</p>
+  <% end %>
+<% end %>

@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :rooms, only: [:new, :create, :edit, :update, :index, :show] do
-    resources :reservations, only: [:new, :create]
+    resources :reservations, only: [:new, :create, :show]
     post '/check_availability', to: 'reservations#check_availability'
   end
+
+  resources :reservations, only: [:index]
 
   resources :custom_prices, only: [:new, :create]
   
@@ -18,5 +20,4 @@ Rails.application.routes.draw do
   
   get 'guesthouses_by_city', to: 'guesthouses#by_city', as: :guesthouses_by_city
   get 'search_guesthouses', to: 'guesthouses#search', as: :search_guesthouses
-  post '/reservations/:room_id/check_availability', to: 'reservations#check_availability', as: :check_availability
 end

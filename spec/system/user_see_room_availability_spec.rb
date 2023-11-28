@@ -113,7 +113,7 @@ describe 'user see room availability' do
       available: true
     )
 
-    reservation = room.reservations.create!(entry_date: "2023-12-11", departure_date: "2023-12-13", number_of_guests: 2, client_id: 1)
+    reservation = room.reservations.create!(entry_date: "2023-12-11", departure_date: "2023-12-13", number_of_guests: 2, client_id: 1, guesthouse: guesthouse)
 
     # Act
     visit root_path
