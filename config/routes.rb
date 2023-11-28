@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     post '/check_in', to: 'reservations#check_in', as: 'check_in'
   end
 
+  get '/active_stays', to: 'reservations#active_stays', as: 'active_stays'
+
   resources :custom_prices, only: [:new, :create]
   
   resources :guesthouses, only: [:new, :create, :show, :edit, :update]

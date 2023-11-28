@@ -101,6 +101,11 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def active_stays
+    @guesthouse = current_owner.guesthouse
+    @active_stays = @guesthouse.reservations.active_stays
+  end
+
   private
 
   def reservation_params

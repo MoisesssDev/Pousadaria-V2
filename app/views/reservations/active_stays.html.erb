@@ -1,0 +1,34 @@
+<h1> <%= @guesthouse.name %> </h1>
+
+<% if @active_stays.present? %>
+  <% @active_stays.each do |stay| %>
+
+    <p>Código</p>
+    <%= link_to stay.code, room_reservation_path(stay.room, stay) %>
+
+    <p> <%= stay.room.name %> </p>
+
+    <% if owner_signed_in? %>
+      <p>Data de entrada: <%= stay.entry_date.strftime("%Y-%m-%d") %></p>
+      <p>Data de saída: <%= stay.departure_date.strftime("%Y-%m-%d") %></p>
+      <p>Quantidade de hóspedes: <%= stay.number_of_guests %></p>
+    <% end %>
+
+    <% if stay.confirmed? %> 
+      <p>Confirmada</p>
+    <% end %>
+
+    <% if stay.canceled? %> 
+      <p>Cancelada</p>
+    <% end %>
+
+    <% if stay.active? %> 
+      <p>Ativa</p>
+    <% end %>
+
+  <% end %>
+<% else %>
+
+  <p>Não possui nenhuma reserva</p>
+
+<% end %>

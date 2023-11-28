@@ -34,6 +34,7 @@
           <% if signed_in? %>
             <% if owner_signed_in? && current_owner.guesthouse.present? && current_owner.guesthouse.id.present? %>
               <%= link_to "Minha pousada", guesthouse_path(current_owner.guesthouse), id: "my-guesthouse" %>
+              <%= link_to "Estadias ativas", active_stays_path, id: "my-guesthouse" %>
             <% end %>
             <% if client_signed_in? %>
               <%= link_to "Minhas reservas", reservations_path, id: "my-guesthouse" %>

@@ -8,6 +8,7 @@ class Reservation < ApplicationRecord
   validate :valid_dates
 
   enum status: { confirmed: 'confirmada', canceled: 'cancelada', active: 'ativa' }
+  scope :active_stays, -> { where(status: :active) }
 
   after_create :set_status_confirmed
 
