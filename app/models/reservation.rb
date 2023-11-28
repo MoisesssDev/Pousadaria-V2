@@ -15,8 +15,7 @@ class Reservation < ApplicationRecord
   def cancellable?
     return false if status == 'canceled'
 
-    # Verifica se a data de check-in está pelo menos a 7 dias de distância
-    (entry_date - 7.days).future?
+    entry_date >= 7.days.from_now || entry_date <= 2.days.ago
   end
 
   def valid_dates
