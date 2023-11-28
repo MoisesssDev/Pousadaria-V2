@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :rooms, only: [:new, :create, :edit, :update, :index, :show] do
     resources :reservations, only: [:new, :create, :show]
     post '/check_availability', to: 'reservations#check_availability'
+    patch '/cancel_reservation/:id', to: 'reservations#cancel', as: 'cancel_reservation'
   end
 
   resources :reservations, only: [:index]

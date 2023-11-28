@@ -1,5 +1,6 @@
 <% @reservations.each do |reservation| %>
-  <p>Código <%= reservation.code %> </p>
+  <p>Código</p>
+  <%= link_to reservation.code, room_reservation_path(reservation.room, reservation) %>
   <p> <%= reservation.guesthouse.name %> </p>
   <p> <%= reservation.room.name %> </p>
   <% if reservation.confirmed? %> 

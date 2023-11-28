@@ -7,3 +7,9 @@
 <p> Check-out: <%= @room.guesthouse.check_out_time.strftime("%Hh%M") %> </p>
 
 <p> Valor total: R$ <%= number_with_precision(@reservation.total_price, precision: 2, separator: ',') %> </p>
+
+<% if @reservation.confirmed? && @reservation.cancellable? %>
+  <%= form_for @reservation, url: room_cancel_reservation_path(@room, @reservation), method: :patch do |form| %>
+    <%= form.submit 'Cancelar reserva' %>
+  <% end %>
+<% end %>

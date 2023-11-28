@@ -11,6 +11,13 @@ class Reservation < ApplicationRecord
 
   after_create :set_status_confirmed
 
+  def cancellable?
+    return false if status == 'canceled'
+
+    # Verifica se a data de check-in está pelo menos a 7 dias de distância
+    (entry_date - 7.days).future?
+  end
+
   def valid_dates
     if entry_date.blank? || departure_date.blank?
       errors.add(:base, "Datas de entrada e saída são obrigatórias.")

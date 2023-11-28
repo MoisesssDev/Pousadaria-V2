@@ -75,6 +75,19 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def cancel
+    @reservation = current_client.reservations.find(params[:id])
+
+    if @reservation.cancellable?
+      @reservation.update(status: :canceled)
+      flash[:notice] = 'Reserva cancelada com sucesso.'
+    else
+      flash[:alert] = 'Não é possível cancelar esta reserva.'
+    end
+
+    redirect_to reservations_path
+  end
+
   private
 
   def reservation_params
