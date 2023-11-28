@@ -73,6 +73,10 @@ class ReservationsController < ApplicationController
     if client_signed_in?
       @reservations = current_client.reservations
     end
+
+    if owner_signed_in?
+      @reservations = current_owner.guesthouse.reservations
+    end
   end
 
   def cancel
