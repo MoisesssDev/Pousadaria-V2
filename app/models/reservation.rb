@@ -7,7 +7,7 @@ class Reservation < ApplicationRecord
 
   validate :valid_dates
 
-  enum status: { confirmed: 'confirmada', canceled: 'cancelada' }
+  enum status: { confirmed: 'confirmada', canceled: 'cancelada', active: 'ativa' }
 
   after_create :set_status_confirmed
 
@@ -30,6 +30,15 @@ class Reservation < ApplicationRecord
 
     if entry_date < Date.today
       errors.add(:base, "A data de entrada não pode ser anterior à data atual.")
+    end
+  end
+
+  def check_in
+    if entry_date <= Time.now
+      update(status: :active, check_in_date: Time.now)
+    else
+      errors.add(:base, 'Check-in disponível apenas a partir da data de entrada.')
+      false
     end
   end
 

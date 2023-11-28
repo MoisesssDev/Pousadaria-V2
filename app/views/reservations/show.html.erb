@@ -13,3 +13,7 @@
     <%= form.submit 'Cancelar reserva' %>
   <% end %>
 <% end %>
+
+<% if owner_signed_in? %>
+  <%= link_to "Realizar check-in", reservation_check_in_path(@reservation), method: :post %>
+<% end %>

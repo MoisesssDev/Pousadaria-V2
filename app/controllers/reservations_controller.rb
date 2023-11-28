@@ -92,6 +92,15 @@ class ReservationsController < ApplicationController
     redirect_to reservations_path
   end
 
+  def check_in
+    @reservation = Reservation.find(params[:reservation_id])
+    if @reservation.check_in
+      redirect_to reservations_path, notice: 'Check-in realizado com sucesso.'
+    else
+      redirect_to reservations_path, alert: @reservation.errors.full_messages.join(', ')
+    end
+  end
+
   private
 
   def reservation_params

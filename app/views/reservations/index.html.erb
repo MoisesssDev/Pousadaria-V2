@@ -22,6 +22,10 @@
       <p>Cancelada</p>
     <% end %>
 
+    <% if reservation.active? %> 
+      <p>Ativa</p>
+    <% end %>
+
   <% end %>
 <% else %>
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'user owner view reservations' do
+describe 'user owner check-in the client' do
   it 'sucessfully' do
     # Arrange
     client = Client.create!(email: "moises@teste.com", password: "123456mo", full_name: "Moises Almeida Leite", cpf: "09032145622")
@@ -39,20 +39,6 @@ describe 'user owner view reservations' do
     formatted_entry_date_r1 = Time.now.strftime("%Y-%m-%d")
     formatted_departure_date_r1 = Time.now.tomorrow.strftime("%Y-%m-%d")
 
-    r2 = Reservation.create!(
-      entry_date: Time.now.tomorrow,
-      departure_date: Time.now.tomorrow + 3.days,
-      number_of_guests: 3,
-      room: room, 
-      total_price: 300.0,
-      client: client,
-      guesthouse: guesthouse,
-    )
-    departure_date = Time.now.tomorrow + 3.days
-    
-    formatted_entry_date_r2 = Time.now.tomorrow.strftime("%Y-%m-%d")
-    formatted_departure_date_r2 = departure_date.strftime("%Y-%m-%d")
-
     # Act
     visit root_path
     click_on "Entrar / Cadastrar"
@@ -65,6 +51,8 @@ describe 'user owner view reservations' do
 
     click_on "Minha pousada"
     click_on "Reservas"
+    click_on r1.code
+    click_on "Realizar check-in"
 
 
     # Assert
@@ -74,19 +62,11 @@ describe 'user owner view reservations' do
     expect(page).to have_content "Data de entrada: " + formatted_entry_date_r1
     expect(page).to have_content "Data de saída: " + formatted_departure_date_r1
     expect(page).to have_content "Quantidade de hóspedes: 2"
-    expect(page).to have_content "Confirmada"
-
-    expect(page).to have_content "Código"
-    expect(page).to have_content r2.code
-    expect(page).to have_content "Quarto Sol"
-    expect(page).to have_content "Data de entrada: " + formatted_entry_date_r2
-    expect(page).to have_content "Data de saída: " + formatted_departure_date_r2
-    expect(page).to have_content "Quantidade de hóspedes: 3"
-    expect(page).to have_content "Confirmada"
+    expect(page).to have_content "Ativa"
     
   end
- 
-  it 'and has no reservations' do
+
+  it 'before the entry date' do
     # Arrange
     client = Client.create!(email: "moises@teste.com", password: "123456mo", full_name: "Moises Almeida Leite", cpf: "09032145622")
     user = Owner.create!(email: "moisesalmeida@gmail.com", password: "110302")
@@ -112,6 +92,18 @@ describe 'user owner view reservations' do
       available: true
     )
 
+    r1 = Reservation.create!(
+      entry_date: Time.now.tomorrow,
+      departure_date: Time.now.tomorrow + 2.days,
+      number_of_guests: 2,
+      room: room,
+      total_price: 200.0,
+      client: client,
+      guesthouse: guesthouse,
+    )
+    formatted_entry_date_r1 = r1.entry_date.strftime("%Y-%m-%d")
+    formatted_departure_date_r1 = r1.departure_date.strftime("%Y-%m-%d")
+
     # Act
     visit root_path
     click_on "Entrar / Cadastrar"
@@ -121,12 +113,22 @@ describe 'user owner view reservations' do
     within ".actions" do
       click_on "Entrar"
     end
+
     click_on "Minha pousada"
     click_on "Reservas"
+    click_on r1.code
+    click_on "Realizar check-in"
 
 
     # Assert
-    expect(page).to have_content "Não possui nenhuma reserva" 
+    expect(page).to have_content "Check-in disponível apenas a partir da data de entrada."
+    expect(page).to have_content "Código"
+    expect(page).to have_content r1.code
+    expect(page).to have_content "Quarto Sol"
+    expect(page).to have_content "Data de entrada: " + formatted_entry_date_r1
+    expect(page).to have_content "Data de saída: " + formatted_departure_date_r1
+    expect(page).to have_content "Quantidade de hóspedes: 2"
+    expect(page).to have_content "Confirmada"
     
   end
 end

@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     patch '/cancel_reservation/:id', to: 'reservations#cancel', as: 'cancel_reservation'
   end
 
-  resources :reservations, only: [:index]
+  resources :reservations, only: [:index] do
+    post '/check_in', to: 'reservations#check_in', as: 'check_in'
+  end
 
   resources :custom_prices, only: [:new, :create]
   
