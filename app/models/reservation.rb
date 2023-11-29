@@ -7,7 +7,7 @@ class Reservation < ApplicationRecord
 
   validate :valid_dates
 
-  enum status: { confirmed: 'confirmada', canceled: 'cancelada', active: 'ativa' }
+  enum status: { confirmed: 'confirmada', canceled: 'cancelada', active: 'ativa', finalized: 'finalizada' }
   scope :active_stays, -> { where(status: :active) }
 
   after_create :set_status_confirmed
@@ -27,10 +27,6 @@ class Reservation < ApplicationRecord
     if entry_date > departure_date
       errors.add(:base, "A data de entrada não pode ser posterior à data de saída.")
     end
-
-    if entry_date < Date.today
-      errors.add(:base, "A data de entrada não pode ser anterior à data atual.")
-    end
   end
 
   def check_in
@@ -42,14 +38,21 @@ class Reservation < ApplicationRecord
     end
   end
 
+  def checkout(total_paid, payment_method)
+    update(
+      status: :finalized,
+      checkout_date: Time.now,
+      total_price: total_paid,
+      payment_method: payment_method
+    )
+  end
+
   private
 
   def generate_reservation_code
     loop do
-      # Gera um código de reserva aleatório de 8 caracteres
       self.code = SecureRandom.hex(4).upcase[0, 8]
 
-      # Verifica se o código já existe em outras reservas
       break unless Reservation.exists?(code: self.code)
     end
   end

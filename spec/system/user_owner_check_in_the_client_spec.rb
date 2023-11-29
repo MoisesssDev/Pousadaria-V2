@@ -93,7 +93,7 @@ describe 'user owner check-in the client' do
     )
 
     r1 = Reservation.create!(
-      entry_date: Time.now.tomorrow,
+      entry_date: Time.now.tomorrow + 1.days,
       departure_date: Time.now.tomorrow + 2.days,
       number_of_guests: 2,
       room: room,

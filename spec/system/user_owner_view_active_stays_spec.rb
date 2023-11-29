@@ -117,7 +117,7 @@ describe 'user owner view active stays' do
 
 
     # Assert
-    expect(page).to have_content "Não possui nenhuma reserva" 
+    expect(page).to have_content "Não possui nenhuma estadia ativa" 
     
   end
 end

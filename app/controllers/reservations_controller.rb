@@ -23,7 +23,7 @@ class ReservationsController < ApplicationController
         @message = 'Já existe uma reserva para esta data.'
         @total_price = nil
       else
-        @total_price = calculate_total_price(start_date, end_date)
+        @total_price = calculate_total_price(start_date, end_date, @room.daily_rate)
         @message = "Quarto disponível para essa data. Valor total: R$ #{@total_price}"
 
         session[:reservation_data] = {
@@ -47,18 +47,18 @@ class ReservationsController < ApplicationController
       @reservation.guesthouse = @room.guesthouse
 
       if @reservation.save
-        # Limpe as informações de reserva armazenadas na sessão
+        
         session[:reserva_info] = nil
 
-        # Redirecione para a página de confirmação ou outra página relevante
+        
         redirect_to room_reservation_path(@room, @reservation), notice: "Reserva criada com sucesso."
       else
-        # Trate o caso em que a reserva não pode ser salva
+        
         flash[:alert] = 'Erro ao confirmar a reserva. Por favor, tente novamente.'
         render 'new', status: :unprocessable_entity
       end
     else
-      # Se o usuário não estiver logado, redirecione para a página de login
+      
       flash[:notice] = 'Faça login para confirmar a reserva.'
       store_location_for(:client, new_room_reservation_path)
       redirect_to new_client_session_path
@@ -97,7 +97,22 @@ class ReservationsController < ApplicationController
     if @reservation.check_in
       redirect_to reservations_path, notice: 'Check-in realizado com sucesso.'
     else
-      redirect_to reservations_path, alert: @reservation.errors.full_messages.join(', ')
+      redirect_to reservations_path, notice: @reservation.errors.full_messages.join(', ')
+    end
+  end
+
+  def check_out
+    @reservation = Reservation.find(params[:reservation_id])
+    total_paid = calculate_total_paid(@reservation)
+    payment_method = params[:reservation][:payment_method]
+
+
+    if @reservation.checkout(total_paid, payment_method)
+      redirect_to room_reservation_path(@reservation.room, @reservation), notice: 'Check-out realizado com sucesso.'
+    else
+      flash[:alert] = 'Erro ao realizar o check-out.'
+      puts @reservation.errors.full_messages.join(', ')
+      redirect_to room_reservation_path(@reservation.room, @reservation)
     end
   end
 
@@ -107,6 +122,19 @@ class ReservationsController < ApplicationController
   end
 
   private
+
+  def calculate_total_paid(reservation)
+    check_out_time = reservation.guesthouse.check_out_time
+    check_out_datetime = reservation.departure_date.to_time.change(hour: check_out_time.hour, min: check_out_time.min)
+  
+    if Time.now.to_date > check_out_datetime.to_date
+      calculate_total_price(reservation.entry_date, Time.now, reservation.room.daily_rate)
+    elsif Time.now > check_out_datetime
+      calculate_total_price(reservation.entry_date, Time.now.tomorrow, reservation.room.daily_rate)
+    else
+      reservation.total_price
+    end
+  end
 
   def reservation_params
     params.require(:reservation).permit(:entry_date, :departure_date, :number_of_guests)
@@ -123,11 +151,11 @@ class ReservationsController < ApplicationController
              .present?
   end
 
-  def calculate_total_price(start_date, end_date)
-    return 0 if start_date.nil? || end_date.nil?
+  def calculate_total_price(start_date, end_date, price_per_night)
+    new_start_date = Date.new(start_date.year, start_date.month, start_date.day)
+    new_end_date = Date.new(end_date.year, end_date.month, end_date.day)
 
-    price_per_night = @room.daily_rate
-    total_nights = (end_date - start_date).to_i
+    total_nights = (new_end_date - new_start_date).to_i
   
     total_price = price_per_night * total_nights
     format('%.2f', total_price).tr('.', ',')

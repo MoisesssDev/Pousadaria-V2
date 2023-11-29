@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :reservations, only: [:index] do
     post '/check_in', to: 'reservations#check_in', as: 'check_in'
+    post '/check_out', to: 'reservations#check_out', as: 'check_out'
   end
 
   get '/active_stays', to: 'reservations#active_stays', as: 'active_stays'
