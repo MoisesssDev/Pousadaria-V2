@@ -26,6 +26,10 @@
       <p>Ativa</p>
     <% end %>
 
+    <% if reservation.finalized? %> 
+      <p>Finalizada</p>
+    <% end %>
+
   <% end %>
 <% else %>
 

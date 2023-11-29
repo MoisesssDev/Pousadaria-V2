@@ -109,7 +109,7 @@ describe 'user owner check-out the client' do
     r1.check_in
 
     # Act
-    Timecop.travel(r1.departure_date + 28.hours) do
+    Timecop.travel(r1.departure_date + 24.hours) do
       visit root_path
       click_on "Entrar / Cadastrar"
       fill_in "E-mail",	with: "moisesalmeida@gmail.com"

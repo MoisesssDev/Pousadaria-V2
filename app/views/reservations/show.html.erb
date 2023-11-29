@@ -42,4 +42,14 @@
   <% end %>
 <% end %>
 
-<%= Time.now %>
+<% if @reservation.finalized? && @reservation.review.nil? %>
+  <%= form_for @review, url: reservation_reviews_path(@reservation), local: true, method: :post do |f| %>
+    <%= f.label :rating %>
+    <%= f.select :rating, (0..5).to_a %>
+
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+
+    <%= f.submit "Fazer avaliação" %>
+  <% end %>
+<% end %>

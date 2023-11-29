@@ -1,6 +1,10 @@
 class Reservation < ApplicationRecord
   before_create :generate_reservation_code
 
+  after_create :set_status_confirmed
+
+  has_one :review
+
   belongs_to :room
   belongs_to :guesthouse, optional: true
   belongs_to :client, optional: true
@@ -9,8 +13,6 @@ class Reservation < ApplicationRecord
 
   enum status: { confirmed: 'confirmada', canceled: 'cancelada', active: 'ativa', finalized: 'finalizada' }
   scope :active_stays, -> { where(status: :active) }
-
-  after_create :set_status_confirmed
 
   def cancellable?
     return false if status == 'canceled'

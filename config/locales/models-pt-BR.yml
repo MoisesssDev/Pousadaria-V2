@@ -5,7 +5,11 @@ pt-BR:
       client: "Usuário"
       guesthouse: "Pousada"
       room: "Quarto"
+      review: "Avaliação"
     attributes:
+      review:
+        comment: "Comentários"
+        rating: "Avaliação"
       client:
         email: "E-mail"
         password: "Senha"

@@ -67,6 +67,9 @@ class ReservationsController < ApplicationController
 
   def show 
     @reservation = Reservation.find(params[:id])
+    if @reservation.review.nil?
+      @review = Review.new
+    end
   end
 
   def index

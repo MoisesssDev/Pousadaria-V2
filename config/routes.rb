@@ -14,16 +14,18 @@ Rails.application.routes.draw do
   end
 
   resources :reservations, only: [:index] do
+    resources :reviews, only: [:create]
     post '/check_in', to: 'reservations#check_in', as: 'check_in'
     post '/check_out', to: 'reservations#check_out', as: 'check_out'
   end
-
-  get '/active_stays', to: 'reservations#active_stays', as: 'active_stays'
 
   resources :custom_prices, only: [:new, :create]
   
   resources :guesthouses, only: [:new, :create, :show, :edit, :update]
   
+  get '/active_stays', to: 'reservations#active_stays', as: 'active_stays'
+
   get 'guesthouses_by_city', to: 'guesthouses#by_city', as: :guesthouses_by_city
+
   get 'search_guesthouses', to: 'guesthouses#search', as: :search_guesthouses
 end
