@@ -1,0 +1,22 @@
+<p>Código</p>
+<p> <%= @review.reservation.code %> </p>
+
+<p> <%= @review.reservation.room.name %> </p>
+
+<p>
+  Comentário: <%= @review.comment %>
+</p>
+
+<p>Nota: <%= @review.rating %></p>
+
+<p>Data de check-in: <%= @review.reservation.check_in_date.strftime("%d/%m/%Y") %></p>
+<p>Data de check-out: <%= @review.reservation.checkout_date.strftime("%d/%m/%Y") %></p>
+
+<p>Hóspede: <%= @review.reservation.client.full_name %></p>
+
+<%= form_for @review, url: reservation_review_response_path(@review.reservation, @review), local: true, method: :post do |f| %>
+  <%= f.label :response_to_review %>
+  <%= f.text_area :response_to_review %>
+
+  <%= f.submit "Enviar resposta" %>
+<% end %>

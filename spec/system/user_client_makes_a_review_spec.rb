@@ -63,6 +63,8 @@ describe 'user client makes a review' do
 
       # Assert
       expect(page).to have_content "Avaliação cadastrada com sucesso"
+      expect(page).to have_content "Avaliação: (Moises Almeida Leite)"
+      expect(page).to have_content "Gostei bastante da estadia!!!"
     end
     
   end

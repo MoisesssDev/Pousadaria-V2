@@ -53,3 +53,15 @@
     <%= f.submit "Fazer avaliação" %>
   <% end %>
 <% end %>
+
+<% if @reservation.review.present? %>
+  <div>
+    <p>Avaliação: (<%= @reservation.client.full_name %>) Nota: (<%= @reservation.review.rating %>)</p>
+    <p><%= @reservation.review.comment %></p>
+  </div>
+
+  <div>
+    <p>Resposta: (<%= @reservation.guesthouse.name %>) </p>
+    <p><%= @reservation.review.response_to_review %></p>
+  </div>
+<% end %>

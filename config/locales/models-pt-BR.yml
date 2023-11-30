@@ -10,6 +10,7 @@ pt-BR:
       review:
         comment: "Comentários"
         rating: "Avaliação"
+        response_to_review: "Resposta"
       client:
         email: "E-mail"
         password: "Senha"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_30_015119) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_30_030045) do
   create_table "clients", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -99,6 +99,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_015119) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "guesthouse_id", null: false
+    t.string "response_to_review"
     t.index ["guesthouse_id"], name: "index_reviews_on_guesthouse_id"
     t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
   end

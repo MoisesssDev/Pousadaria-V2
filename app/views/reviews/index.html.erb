@@ -4,14 +4,22 @@
   <% @reviews.each do |review| %>
 
     <p>Código</p>
-    <%= link_to review.reservation.code, room_reservation_path(review.reservation.room, review) %>
+    <p> <%= review.reservation.code %> </p>
 
     <p> <%= review.reservation.room.name %> </p>
+
+    <p>
+      Comentário: <%= review.comment %>
+    </p>
+
+    <p>Nota: <%= review.rating %></p>
 
     <p>Data de check-in: <%= review.reservation.check_in_date.strftime("%d/%m/%Y") %></p>
     <p>Data de check-out: <%= review.reservation.checkout_date.strftime("%d/%m/%Y") %></p>
 
     <p>Hóspede: <%= review.reservation.client.full_name %></p>
+
+    <%= link_to "Responder avaliação", reservation_review_path(review.reservation, review) %>
 
   <% end %>
 <% else %>

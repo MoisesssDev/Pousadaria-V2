@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :reservations, only: [:index] do
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :show] do
+      post '/response', to: 'reviews#response_to_review'
+    end
     post '/check_in', to: 'reservations#check_in', as: 'check_in'
     post '/check_out', to: 'reservations#check_out', as: 'check_out'
   end
