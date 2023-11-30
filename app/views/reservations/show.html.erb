@@ -1,10 +1,10 @@
-<h1> <%= @room.name %> </h1>
+<h1> <%= @reservation.room.name %> </h1>
 
 <p> Data de entrada: <%= @reservation.entry_date.strftime("%d/%m/%Y") %> </p>
-<p> Check-in: <%= @room.guesthouse.check_in_time.strftime("%Hh%M") %> </p>
+<p> Check-in: <%= @reservation.guesthouse.check_in_time.strftime("%Hh%M") %> </p>
 
 <p> Data de saída: <%= @reservation.departure_date.strftime("%d/%m/%Y") %> </p>
-<p> Check-out: <%= @room.guesthouse.check_out_time.strftime("%Hh%M") %> </p>
+<p> Check-out: <%= @reservation.guesthouse.check_out_time.strftime("%Hh%M") %> </p>
 
 <p>Quantidade de hóspedes: <%= @reservation.number_of_guests %></p>
 

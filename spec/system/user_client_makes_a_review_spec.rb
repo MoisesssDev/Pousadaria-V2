@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'user owner check-out the client' do
+describe 'user client makes a review' do
   it 'sucessfully' do
     # Arrange
     client = Client.create!(email: "moises@teste.com", password: "123456mo", full_name: "Moises Almeida Leite", cpf: "09032145622")
@@ -36,8 +36,6 @@ describe 'user owner check-out the client' do
       client: client,
       guesthouse: guesthouse,
     )
-    formatted_entry_date_r1 = Time.now.strftime("%d/%m/%Y")
-    formatted_departure_date_r1 = Time.now.tomorrow.strftime("%d/%m/%Y")
     
     r1.check_in
 

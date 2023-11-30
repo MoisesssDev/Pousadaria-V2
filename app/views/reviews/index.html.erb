@@ -1,0 +1,21 @@
+<h1>Avaliações</h1>
+
+<% if @reviews.present? %>
+  <% @reviews.each do |review| %>
+
+    <p>Código</p>
+    <%= link_to review.reservation.code, room_reservation_path(review.reservation.room, review) %>
+
+    <p> <%= review.reservation.room.name %> </p>
+
+    <p>Data de check-in: <%= review.reservation.check_in_date.strftime("%d/%m/%Y") %></p>
+    <p>Data de check-out: <%= review.reservation.checkout_date.strftime("%d/%m/%Y") %></p>
+
+    <p>Hóspede: <%= review.reservation.client.full_name %></p>
+
+  <% end %>
+<% else %>
+
+  <p>Não possui nenhuma avaliação</p>
+
+<% end %>

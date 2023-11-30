@@ -1,7 +1,10 @@
 class Guesthouse < ApplicationRecord
   belongs_to :owner
+
   has_many :rooms
   has_many :reservations
+  has_many :reviews
+
   validates :name, presence: true, length: { maximum: 255 }
   validates :legal_name, presence: true, length: { maximum: 255 }
   validates :cnpj, presence: true, uniqueness: true

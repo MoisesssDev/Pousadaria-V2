@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   resources :custom_prices, only: [:new, :create]
   
-  resources :guesthouses, only: [:new, :create, :show, :edit, :update]
+  resources :guesthouses, only: [:new, :create, :show, :edit, :update] do
+    resources :reviews, only: [:index]
+  end
   
   get '/active_stays', to: 'reservations#active_stays', as: 'active_stays'
 
