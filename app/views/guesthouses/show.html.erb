@@ -2,6 +2,11 @@
 
   <div class="header-guesthouse">
     <h1 class="name-guesthouse"><%= @guesthouse.name %></h1>
+    <% if @guesthouse.reviews.present? %>
+      <p class="rating-guesthouse"><%= @guesthouse.calculate_average_rating %></p>
+    <% else %>
+      <p class="rating-guesthouse">- / -</p>
+    <% end %>
     <p class="description-guesthouse"><%= @guesthouse.description %></p>
   </div>
 
@@ -104,6 +109,28 @@
 
     <% end %>
   </div>
+</section>
+
+<section class="comments">
+  <h2 class="title-comments">Avaliações</h2>
+
+  <% if @guesthouse.reviews.empty? %>
+    <p>Não possui nenhuma avaliação</p>
+  <% else %>
+    <p>Comentários:</p>
+  <% end %>
+
+  <div class="comments-grid">
+    <% @guesthouse.reviews.each do |review| %>
+      <div class="card-comment">
+        <p class="full_name"><%= review.reservation.client.full_name %></p>
+        <p class="rating">Nota: <%= review.rating %></p>
+        <p class="comment"><%= review.comment %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Ver todas as avaliações", guesthouse_reviews_path(@guesthouse) %>
 </section>
 
 

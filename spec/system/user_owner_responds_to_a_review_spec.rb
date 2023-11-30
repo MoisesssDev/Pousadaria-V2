@@ -119,9 +119,6 @@ describe 'user owner responds to a review' do
       r1.checkout(total_paid, payment_method)
       r1.create_review!(comment: "Gostei bastante da estadia!!!", rating: 4, guesthouse: guesthouse)
 
-      formatted_check_in_date_r1 = r1.check_in_date.strftime("%d/%m/%Y")
-      formatted_check_out_date_r1 = r1.checkout_date.strftime("%d/%m/%Y")
-
       # Act
       visit root_path
       click_on "Entrar / Cadastrar"

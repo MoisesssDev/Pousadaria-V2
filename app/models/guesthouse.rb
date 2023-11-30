@@ -29,4 +29,10 @@ class Guesthouse < ApplicationRecord
   def check_out_time_and_check_in_time_blank?
     errors.add(:check_out_time, "Check-in e Check-out não pode ficar em branco.") if check_in_time.blank? || check_out_time.blank?
   end
+
+  def calculate_average_rating
+    average_rating = reviews.average(:rating)
+    format("%.2f", average_rating).tr('.', ',') + " / 5.0"
+  end
+
 end
