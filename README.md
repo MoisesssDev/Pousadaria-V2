@@ -30,7 +30,7 @@ Bem-vindo ao Pousadaria App, um sistema de gerenciamento de reservas para pousad
 1. Clone o repositório:
 
    ```bash
-   git clone https://seu-repositorio.git
+   git clone https://[seu-repositorio.git](https://github.com/MoisesssDev/Pousadaria)
    ```
 
 2. Instale as dependências:
