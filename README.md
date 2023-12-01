@@ -13,10 +13,11 @@ Bem-vindo ao Pousadaria App, um sistema de gerenciamento de reservas para pousad
 - Fazer check-in e check-out
 - Adicionar quartos
 
-## Funcionalidades em desenvolvimento
+## Em desenvolvimento
 
 - API pousadaria
 - Pousadaria VueJS
+- Layout
 
 ## Tecnologias Utilizadas
 
@@ -30,7 +31,7 @@ Bem-vindo ao Pousadaria App, um sistema de gerenciamento de reservas para pousad
 1. Clone o repositório:
 
    ```bash
-   git clone https://[seu-repositorio.git](https://github.com/MoisesssDev/Pousadaria)
+   git clone https://github.com/MoisesssDev/Pousadaria
    ```
 
 2. Instale as dependências:
