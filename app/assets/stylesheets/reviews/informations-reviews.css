@@ -1,0 +1,73 @@
+.informations-review {
+  padding: 30px 15%;
+}
+
+.informations-review small {
+  color: var(--red-color);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.informations-review .title-review {
+  border-left: 5px solid var(--red-color);
+  padding: 5px 15px;
+  font-size: 1.2em;
+  font-weight: 500;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.informations-review .code-review {
+  letter-spacing: 3px;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 18px;
+  text-align: end;
+}
+
+.informations-review .room-review {
+  letter-spacing: 3px;
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: var(--red-color);
+}
+
+.informations-review .full-name-review {
+  letter-spacing: 3px;
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 60px;
+}
+
+.informations-review .card-comment {
+  padding: 15px;
+  background-color: white;
+  border-radius: 44px 10px 56px 10px;
+  -webkit-border-radius: 44px 10px 56px 10px;
+  -moz-border-radius: 44px 10px 56px 10px;
+  box-shadow: 7px 9px 5px -3px rgba(0,0,0,0.55);
+  -webkit-box-shadow: 7px 9px 5px -3px rgba(0,0,0,0.55);
+  -moz-box-shadow: 7px 9px 5px -3px rgba(0,0,0,0.55);
+  margin-bottom: 30px;
+}
+
+.informations-review .comment-review {
+  letter-spacing: 3px;
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.informations-review .rating-review {
+  letter-spacing: 3px;
+  font-size: 1em;
+  font-weight: 500;
+} 
+
+.informations-review .dates {
+  text-align: end;
+  letter-spacing: 3px;
+  line-height: 1.5;
+}

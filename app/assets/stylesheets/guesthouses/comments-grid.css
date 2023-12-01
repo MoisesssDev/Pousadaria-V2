@@ -1,0 +1,95 @@
+.comments .comments-grid {
+  padding: 2%;
+}
+
+.comments .comments-grid .card-comment {
+  padding: 20px;
+  background-color: white;
+  border-radius: 44px 10px 56px 10px;
+  -webkit-border-radius: 44px 10px 56px 10px;
+  -moz-border-radius: 44px 10px 56px 10px;
+  box-shadow: 7px 9px 5px -3px rgba(0,0,0,0.55);
+  -webkit-box-shadow: 7px 9px 5px -3px rgba(0,0,0,0.55);
+  -moz-box-shadow: 7px 9px 5px -3px rgba(0,0,0,0.55);
+  margin-bottom: 30px;
+}
+
+.comments .comments-grid .card-comment p {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  line-height: 1.5;
+}
+
+.comments .comments-grid .card-comment .code {
+  text-align: end;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+.comments .comments-grid .card-comment .code small {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--red-color);
+}
+
+.comments .comments-grid .card-comment .room-review {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: var(--red-color);
+}
+
+.comments .comments-grid .card-comment .full_name {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+.comments .comments-grid .card-comment .full_name small {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--red-color);
+}
+
+.comments .comments-grid .card-comment .rating {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-align: end;
+}
+
+.comments .comments-grid .card-comment .rating small {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--red-color);
+}
+
+.comments .comments-grid .card-comment .comment {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  margin-top: 20px;
+}
+
+.comments .comments-grid .card-comment .comment-review {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.comments .comments-grid .card-comment .dates {
+  margin-top: 10px;
+}
+
+.comments .comments-grid .card-comment .button-response {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: var(--light-red);
+}
+
+.comments .comments-grid .card-comment .date-checkin, .comments .comments-grid .card-comment .date-checkout {
+  font-size: 12px;
+}

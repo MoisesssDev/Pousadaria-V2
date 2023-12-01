@@ -14,10 +14,8 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    if owner_signed_in?
-      @guesthouse = Guesthouse.find(params[:guesthouse_id])
-      @reviews = @guesthouse.reviews
-    end
+    @guesthouse = Guesthouse.find(params[:guesthouse_id])
+    @reviews = @guesthouse.reviews
     
   end
 

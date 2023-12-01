@@ -1,22 +1,33 @@
-<p>Código</p>
-<p> <%= @review.reservation.code %> </p>
+<section class="informations-review">
+  <h2 class="title-review">Avaliação:</h2>
 
-<p> <%= @review.reservation.room.name %> </p>
+  <p class="code-review"><small>Código:</small> <%= @review.reservation.code %> </p>
+  
+  <p class="room-review"> <%= @review.reservation.room.name %> </p>
 
-<p>
-  Comentário: <%= @review.comment %>
-</p>
+  <p class="full-name-review"><small>Hóspede:</small> <%= @review.reservation.client.full_name %></p>
 
-<p>Nota: <%= @review.rating %></p>
+  <div class="card-comment">
+    <p class="comment-review">
+      <small>Comentário:</small> <%= @review.comment %>
+    </p>
 
-<p>Data de check-in: <%= @review.reservation.check_in_date.strftime("%d/%m/%Y") %></p>
-<p>Data de check-out: <%= @review.reservation.checkout_date.strftime("%d/%m/%Y") %></p>
+    <p class="rating-review"><small>Nota:</small> <%= format("%.2f", @review.rating).tr('.', ',') + " / 5.0" %></p>
+  </div>
 
-<p>Hóspede: <%= @review.reservation.client.full_name %></p>
+  <div class="dates">
+    <p class="date-checkin-review"><small>Data de check-in:</small> <%= @review.reservation.check_in_date.strftime("%d/%m/%Y") %></p>
+    <p class="date-checkout-review"><small>Data de check-out:</small> <%= @review.reservation.checkout_date.strftime("%d/%m/%Y") %></p>
 
-<%= form_for @review, url: reservation_review_response_path(@review.reservation, @review), local: true, method: :post do |f| %>
-  <%= f.label :response_to_review %>
-  <%= f.text_area :response_to_review %>
+  </div>
 
-  <%= f.submit "Enviar resposta" %>
-<% end %>
+</section>
+
+<section class="form-response">
+  <%= form_for @review, url: reservation_review_response_path(@review.reservation, @review), local: true, method: :post do |f| %>
+    <%= f.label :response_to_review, "Digite sua Resposta:" %>
+    <%= f.text_area :response_to_review %>
+
+    <%= f.submit "Enviar resposta", class: "button-response" %>
+  <% end %>
+</section>

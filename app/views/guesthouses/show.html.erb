@@ -3,9 +3,9 @@
   <div class="header-guesthouse">
     <h1 class="name-guesthouse"><%= @guesthouse.name %></h1>
     <% if @guesthouse.reviews.present? %>
-      <p class="rating-guesthouse"><%= @guesthouse.calculate_average_rating %></p>
+      <p class="rating-guesthouse"><small>Nota: </small><%= @guesthouse.calculate_average_rating %></p>
     <% else %>
-      <p class="rating-guesthouse">- / -</p>
+      <p class="rating-guesthouse"><small>Nota: </small> - / -</p>
     <% end %>
     <p class="description-guesthouse"><%= @guesthouse.description %></p>
   </div>
@@ -112,25 +112,25 @@
 </section>
 
 <section class="comments">
-  <h2 class="title-comments">Avaliações</h2>
+  <h2 class="title-comments">Avaliações:</h2>
 
   <% if @guesthouse.reviews.empty? %>
     <p>Não possui nenhuma avaliação</p>
-  <% else %>
-    <p>Comentários:</p>
   <% end %>
 
   <div class="comments-grid">
     <% @guesthouse.reviews.each do |review| %>
       <div class="card-comment">
-        <p class="full_name"><%= review.reservation.client.full_name %></p>
-        <p class="rating">Nota: <%= review.rating %></p>
+        <p class="full_name"><%= review.reservation.client.full_name %> <small>(Hóspede)</small></p>
+        <p class="rating"><small>Nota: </small><%= review.rating %></p>
         <p class="comment"><%= review.comment %></p>
       </div>
     <% end %>
   </div>
 
-  <%= link_to "Ver todas as avaliações", guesthouse_reviews_path(@guesthouse) %>
+  <div class="all-reviews">
+    <%= link_to "Ver todas as avaliações", guesthouse_reviews_path(@guesthouse), class: "button-all-reviews" %>
+  </div>
 </section>
 
 

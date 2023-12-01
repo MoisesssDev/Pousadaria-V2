@@ -173,7 +173,6 @@ describe 'User view guesthouses details' do
 
       # Assert
       expect(page).to have_content "3,00 / 5.0"
-      expect(page).to have_content "Comentários"
       expect(page).to have_content client.full_name
       expect(page).to have_content "Gostei bastante da estadia!!!"
       expect(page).to have_content "Nota: 4"

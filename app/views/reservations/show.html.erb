@@ -42,7 +42,7 @@
   <% end %>
 <% end %>
 
-<% if @reservation.finalized? && @reservation.review.nil? %>
+<% if @reservation.finalized? && @reservation.review.nil? && client_signed_in? %>
   <%= form_for @review, url: reservation_reviews_path(@reservation), local: true, method: :post do |f| %>
     <%= f.label :rating %>
     <%= f.select :rating, (0..5).to_a %>
@@ -56,12 +56,14 @@
 
 <% if @reservation.review.present? %>
   <div>
-    <p>Avaliação: (<%= @reservation.client.full_name %>) Nota: (<%= @reservation.review.rating %>)</p>
+    <p>Avaliação: (<%= @reservation.client.full_name %>) Nota: <%= @reservation.review.rating %></p>
     <p><%= @reservation.review.comment %></p>
   </div>
 
-  <div>
-    <p>Resposta: (<%= @reservation.guesthouse.name %>) </p>
-    <p><%= @reservation.review.response_to_review %></p>
-  </div>
+  <% if @reservation.review.response_to_review.present? %>
+    <div>
+      <p>Resposta: (<%= @reservation.guesthouse.name %>) </p>
+      <p><%= @reservation.review.response_to_review %></p>
+    </div>
+  <% end %>
 <% end %>

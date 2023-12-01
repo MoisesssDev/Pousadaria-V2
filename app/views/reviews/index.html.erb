@@ -1,29 +1,38 @@
-<h1>Avaliações</h1>
+<section class="comments">
+  <h2 class="title-comments">Avaliações:</h2>
 
-<% if @reviews.present? %>
-  <% @reviews.each do |review| %>
+  <% if @reviews.present? %>
+    <div class="comments-grid">
+      <% @reviews.each do |review| %>
 
-    <p>Código</p>
-    <p> <%= review.reservation.code %> </p>
+      <div class="card-comment">
 
-    <p> <%= review.reservation.room.name %> </p>
+        <p class="room-review"> <%= review.reservation.room.name %> </p>
+        <p class="full_name"><small>Hóspede: </small><%= review.reservation.client.full_name %></p>
 
-    <p>
-      Comentário: <%= review.comment %>
-    </p>
+        <p class="comment-review">
+          Comentário: <%= review.comment %>
+        </p>
 
-    <p>Nota: <%= review.rating %></p>
+        <div class="dates">
+          <p class="date-checkin">Data de check-in: <%= review.reservation.check_in_date.strftime("%d/%m/%Y") %></p>
+          <p class="date-checkout">Data de check-out: <%= review.reservation.checkout_date.strftime("%d/%m/%Y") %></p>
+        </div>
 
-    <p>Data de check-in: <%= review.reservation.check_in_date.strftime("%d/%m/%Y") %></p>
-    <p>Data de check-out: <%= review.reservation.checkout_date.strftime("%d/%m/%Y") %></p>
+        <p class="code"><small>Código:</small> <%= review.reservation.code %> </p>
+        <p class="rating"><small>Nota: </small><%= review.rating %></p>
 
-    <p>Hóspede: <%= review.reservation.client.full_name %></p>
+        <% if owner_signed_in? %>
+          <%= link_to "Responder avaliação", reservation_review_path(review.reservation, review), class: "button-response" %>
+        <% end %>
+      </div>
 
-    <%= link_to "Responder avaliação", reservation_review_path(review.reservation, review) %>
+      <% end %>
+    </div>
+
+  <% else %>
+
+    <p>Não possui nenhuma avaliação</p>
 
   <% end %>
-<% else %>
-
-  <p>Não possui nenhuma avaliação</p>
-
-<% end %>
+</section>

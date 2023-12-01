@@ -1,0 +1,37 @@
+.form-response {
+  width: 60%;
+  margin: 20px auto;
+  padding: 10px;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-response form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-response form label {
+  letter-spacing: 3px;
+  font-size: 16px;
+  font-weight: 500;
+
+}
+
+.form-response form textarea {
+  margin: 10px 0;
+  width: 70%;
+  padding: 2em;
+}
+
+.form-response form .button-response {
+  font-weight: 500;
+  margin: 10px 0;
+  width: 30%;
+  padding: 10px;
+  background-color: var(--light-red);
+  color: var(--white-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
