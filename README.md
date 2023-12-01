@@ -1,24 +1,56 @@
-# README
+# Pousadaria App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bem-vindo ao Pousadaria App, um sistema de gerenciamento de reservas para pousadas.
 
-Things you may want to cover:
+## Funcionalidades
 
-* Ruby version
+- Verificar disponibilidade de quartos
+- Fazer reservas
+- Visualizar histórico de reservas
+- Avaliar estadias passadas
+- Buscar pousadas
+- Listagem de pousadas
+- Fazer check-in e check-out
+- Adicionar quartos
 
-* System dependencies
+## Funcionalidades em desenvolvimento
 
-* Configuration
+- API pousadaria
+- Pousadaria VueJS
 
-* Database creation
+## Tecnologias Utilizadas
 
-* Database initialization
+- Ruby on Rails
+- RSpec
+- Capybara
+- SQLite
 
-* How to run the test suite
+## Como Iniciar o Projeto
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Clone o repositório:
 
-* Deployment instructions
+   ```bash
+   git clone https://seu-repositorio.git
+   ```
 
-* ...
+2. Instale as dependências:
+
+    ```bash
+    bundle install
+    ```
+
+3. Configure o banco de dados:
+
+    ```bash
+    rails db:migrate
+    ```
+
+
+4. Inicie o servidor:
+
+    ```bash
+    rails server
+    ```
+
+
+O aplicativo estará disponível em http://localhost:3000.
