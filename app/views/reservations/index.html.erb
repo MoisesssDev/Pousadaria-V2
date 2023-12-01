@@ -1,34 +1,36 @@
 <% if @reservations.present? %>
   <% @reservations.each do |reservation| %>
 
-    <p>Código</p>
-    <%= link_to reservation.code, room_reservation_path(reservation.room, reservation) %>
+    <div class="informations-reservation">
+      <p class="code-reservation">Código</p>
+      <%= link_to reservation.code, room_reservation_path(reservation.room, reservation) %>
 
-    <p> <%= reservation.guesthouse.name %> </p>
+      <p> <%= reservation.guesthouse.name %> </p>
 
-    <p> <%= reservation.room.name %> </p>
+      <p> <%= reservation.room.name %> </p>
 
-    <% if owner_signed_in? %>
-      <p>Data de entrada: <%= reservation.entry_date.strftime("%Y-%m-%d") %></p>
-      <p>Data de saída: <%= reservation.departure_date.strftime("%Y-%m-%d") %></p>
-      <p>Quantidade de hóspedes: <%= reservation.number_of_guests %></p>
-    <% end %>
+      <% if owner_signed_in? %>
+        <p>Data de entrada: <%= reservation.entry_date.strftime("%Y-%m-%d") %></p>
+        <p>Data de saída: <%= reservation.departure_date.strftime("%Y-%m-%d") %></p>
+        <p>Quantidade de hóspedes: <%= reservation.number_of_guests %></p>
+      <% end %>
 
-    <% if reservation.confirmed? %> 
-      <p>Confirmada</p>
-    <% end %>
+      <% if reservation.confirmed? %> 
+        <p>Confirmada</p>
+      <% end %>
 
-    <% if reservation.canceled? %> 
-      <p>Cancelada</p>
-    <% end %>
+      <% if reservation.canceled? %> 
+        <p>Cancelada</p>
+      <% end %>
 
-    <% if reservation.active? %> 
-      <p>Ativa</p>
-    <% end %>
+      <% if reservation.active? %> 
+        <p>Ativa</p>
+      <% end %>
 
-    <% if reservation.finalized? %> 
-      <p>Finalizada</p>
-    <% end %>
+      <% if reservation.finalized? %> 
+        <p>Finalizada</p>
+      <% end %>
+    </div>
 
   <% end %>
 <% else %>
