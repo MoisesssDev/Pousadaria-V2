@@ -55,3 +55,7 @@ Bem-vindo ao Pousadaria App, um sistema de gerenciamento de reservas para pousad
 
 
 O aplicativo estará disponível em http://localhost:3000.
+
+## Diagrama do banco de dados
+
+Explore o diagrama do banco de dados [aqui](https://dbdiagram.io/d/656f34e656d8064ca06ddd9f) para entender a estrutura e a relação entre as entidades no Pousadaria App. 
