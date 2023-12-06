@@ -33,4 +33,14 @@ Rails.application.routes.draw do
   get 'guesthouses_by_city', to: 'guesthouses#by_city', as: :guesthouses_by_city
 
   get 'search_guesthouses', to: 'guesthouses#search', as: :search_guesthouses
+
+  namespace :api do
+    namespace :v1 do
+      resources :guesthouses, only: [:index, :show]
+      # resources :rooms, only: [:index, :show]
+      # resources :reservations, only: [:index, :show, :create]
+      # resources :reviews, only: [:index, :show, :create]
+      # resources :custom_prices, only: [:index, :show]
+    end
+  end
 end
