@@ -38,8 +38,11 @@ describe "Pousadaria API", type: :request do
       json_response = JSON.parse(response.body)
       expect(json_response["name"]).to include("Pousada Renascer")
       expect(json_response["rooms"][0]["name"]).to include("Ocean View Suite")
+
       expect(json_response.keys).not_to include("created_at")
       expect(json_response.keys).not_to include("updated_at")
+      expect(json_response.keys).not_to include("cnpj")
+      expect(json_response.keys).not_to include("legal_name")
     end
 
     it "not found" do
@@ -90,9 +93,13 @@ describe "Pousadaria API", type: :request do
 
         expect(json_response[0].keys).not_to include("created_at")
         expect(json_response[0].keys).not_to include("updated_at")
+        expect(json_response[0].keys).not_to include("cnpj")
+        expect(json_response[0].keys).not_to include("legal_name")
 
         expect(json_response[1].keys).not_to include("created_at")
         expect(json_response[1].keys).not_to include("updated_at")
+        expect(json_response[1].keys).not_to include("cnpj")
+        expect(json_response[1].keys).not_to include("legal_name")
 
         expect(json_response.length).to eq(2) 
       end

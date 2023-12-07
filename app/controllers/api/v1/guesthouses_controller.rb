@@ -4,7 +4,8 @@ class Api::V1::GuesthousesController < ApplicationController
     begin
       guesthouse = Guesthouse.find(params[:id])
       rooms = guesthouse.rooms
-      render status: :ok, json: guesthouse.as_json(except: [:created_at, :updated_at], include: :rooms)
+      render status: :ok, json: guesthouse.as_json(except: [:created_at, :updated_at, :cnpj, :legal_name],
+                                                   include: :rooms)
 
     rescue ActiveRecord::RecordNotFound
       render status: :not_found, json: { message: "Pousada não encontrada" }
@@ -18,7 +19,7 @@ class Api::V1::GuesthousesController < ApplicationController
     if guesthouses.empty?
       render status: :not_found, json: { message: "Nenhuma pousada encontrada" }
     else
-      render status: :ok, json: guesthouses.as_json(except: [:created_at, :updated_at])
+      render status: :ok, json: guesthouses.as_json(except: [:created_at, :updated_at, :cnpj, :legal_name])
     end
 
   end
