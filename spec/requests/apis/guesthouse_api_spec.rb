@@ -6,14 +6,28 @@ describe "Pousadaria API", type: :request do
     it "success" do
       #Arrange
       user = Owner.create!(email: "moisesalmeida@gmail.com", password: "110302")
-      user.create_guesthouse!(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
+      guesthouse = user.create_guesthouse!(name: "Pousada Renascer", legal_name: "Razão Social da Pousada",
                                    cnpj: "12345678901234", phone: "79 98837-7894",
                                    email: "seu01@email.com", address: "Rua Alemedo, 54", district: "Cocora",
                                    state: "Rio de Janeiro", city: "Rio de Janeiro", cep: "CEP da Pousada",
                                    description: "Descrição da Pousada", accepted_payment_methods: "Métodos de pagamento aceitos",
                                    accepts_pets: true, policies: "Políticas de Uso da Pousada", 
                                    check_in_time: "10:00:00", check_out_time: "14:00:00")
-
+      room = guesthouse.rooms.create!(
+        name: "Ocean View Suite",
+        description: "Spacious suite with a breathtaking view of the ocean.",
+        dimension: 45,
+        max_occupancy: 2,
+        daily_rate: 250.00,
+        has_private_bathroom: true,
+        has_balcony: true,
+        has_air_conditioning: true,
+        has_tv: true,
+        has_wardrobe: true,
+        is_accessible: false,
+        has_cofre: true,
+        available: true
+      )
       #Act
       get "/api/v1/guesthouses/#{user.guesthouse.id}"
 
@@ -23,6 +37,7 @@ describe "Pousadaria API", type: :request do
 
       json_response = JSON.parse(response.body)
       expect(json_response["name"]).to include("Pousada Renascer")
+      expect(json_response["rooms"][0]["name"]).to include("Ocean View Suite")
       expect(json_response.keys).not_to include("created_at")
       expect(json_response.keys).not_to include("updated_at")
     end
